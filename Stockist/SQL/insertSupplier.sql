@@ -1,0 +1,16 @@
+INSERT INTO `sa45grp13ca`.`suppliers` (`name`, `address`, `country`, `contact`) VALUES ('LIM AUTO PARTS PTE LTD', '19 Kaki Bukit Place Eunos Techpark', 'SINGAPORE', '90437889');
+INSERT INTO `sa45grp13ca`.`suppliers` (`name`, `address`, `country`, `contact`) VALUES ('REPAIR MECH PTE LTD', '68 Orchard Rd, # 03-73A, Plaza Singapura', 'SINGAPORE', '74839204');
+INSERT INTO `sa45grp13ca`.`suppliers` (`name`, `address`, `country`, `contact`) VALUES ('BUDGET AUTOPARTS PTE LTD', '20 Kramat Lane 04-07, United House', 'SINGAPORE', '85043052');
+INSERT INTO `sa45grp13ca`.`suppliers` (`name`, `address`, `country`, `contact`) VALUES ('REUSE USED AUTO PTE LTD', '38 woodlands industrial park e1 07-11', 'SINGAPORE', '95039104');
+INSERT INTO `sa45grp13ca`.`suppliers` (`name`, `address`, `country`, `contact`) VALUES ('ZAERKS MECHANIC PTE LTD', '545B Balestier Rd', 'SINGAPORE', '99483092');
+INSERT INTO `sa45grp13ca`.`suppliers` (`name`, `address`, `country`, `contact`) VALUES ('JOJOEL TUNING PTE LTD', '15 Yishun Industrial Street 1, #03-33 WIN 5', 'SINGAPORE', '84250329');
+INSERT INTO `sa45grp13ca`.`suppliers` (`name`, `address`, `country`, `contact`) VALUES ('CYCLE&CARRIAGE PTE LTD', 'BLK 15 WOODLANDS LOOP 02 -48', 'MALAYSIA', '88805432');
+INSERT INTO `sa45grp13ca`.`suppliers` (`name`, `address`, `country`, `contact`) VALUES ('EUROSPORTS  PTE LTD', 'Queensway #03-48, Queensway Shopping Centre', 'MALAYSIA', '90785748');
+INSERT INTO `sa45grp13ca`.`suppliers` (`name`, `address`, `country`, `contact`) VALUES ('PORSCHE CENTRE SINGAPORE', '25 Mandai Estate #07-10 Innovation Place', 'INDONESIA', '88095748');
+INSERT INTO `sa45grp13ca`.`suppliers` (`name`, `address`, `country`, `contact`) VALUES ('AUTO EUROKARS PTE LTD', '1 George Street #17-06 One George Street', 'VIETNAM', '99009432');
+INSERT INTO `sa45grp13ca`.`suppliers` (`name`, `address`, `country`, `contact`) VALUES ('I-MOTORING SINGAPORE', '119 Genting Lane 04-00 Industrial Building', 'THAILAND', '88885904');
+INSERT INTO `sa45grp13ca`.`suppliers` (`name`, `address`, `country`, `contact`) VALUES ('HITECH AUTO PTE LTD', '14 Scotts Road #03-81 FAR EAST PLAZA', 'ICELAND', '81129094');
+INSERT INTO `sa45grp13ca`.`suppliers` (`name`, `address`, `country`, `contact`) VALUES ('YOLKSWAGEN AUTO SINGAPORE', 'Blk 13 Woodlands Street 19, #12-13', 'CHINA', '89095894');
+INSERT INTO `sa45grp13ca`.`suppliers` (`name`, `address`, `country`, `contact`) VALUES ('SPEEDO MOTORING PTE LTD', '8 Geylang East Lane', 'INDIA', '99847584');
+INSERT INTO `sa45grp13ca`.`suppliers` (`name`, `address`, `country`, `contact`) VALUES ('SLOWDO MOTORING PTE LTD', 'Blk 384 Lorong 5 Chong Pang, #08-38', 'CHINA', '89950494');
+INSERT INTO `sa45grp13ca`.`suppliers` (`name`, `address`, `country`, `contact`) VALUES ('QUICK RESPONSE PTE LTD', 'Blk 21 Lorong 6 Queenstown, #11-03', 'MALAYSIA', '89807854');
