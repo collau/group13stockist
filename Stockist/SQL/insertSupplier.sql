@@ -14,3 +14,27 @@ INSERT INTO `sa45grp13ca`.`suppliers` (`name`, `address`, `country`, `contact`) 
 INSERT INTO `sa45grp13ca`.`suppliers` (`name`, `address`, `country`, `contact`) VALUES ('SPEEDO MOTORING PTE LTD', '8 Geylang East Lane', 'INDIA', '99847584');
 INSERT INTO `sa45grp13ca`.`suppliers` (`name`, `address`, `country`, `contact`) VALUES ('SLOWDO MOTORING PTE LTD', 'Blk 384 Lorong 5 Chong Pang, #08-38', 'CHINA', '89950494');
 INSERT INTO `sa45grp13ca`.`suppliers` (`name`, `address`, `country`, `contact`) VALUES ('QUICK RESPONSE PTE LTD', 'Blk 21 Lorong 6 Queenstown, #11-03', 'MALAYSIA', '89807854');
+INSERT INTO `sa45grp13ca`.`suppliers` (`name`,`address`,`country`,`contact`) VALUES ('Abstergo Entertainment','Monteriggioni, 53035 Province of Siena','Italy',17218617);
+INSERT INTO `sa45grp13ca`.`suppliers` (`name`,`address`,`country`,`contact`) VALUES ('Normanton Beaver','Harneey','Swiden',38971021);
+INSERT INTO `sa45grp13ca`.`suppliers` (`name`,`address`,`country`,`contact`) VALUES ('Melady Cooperation','Neus Venon','Hurber',1730129);
+INSERT INTO `sa45grp13ca`.`suppliers` (`name`,`address`,`country`,`contact`) VALUES ('Pilot Pen','21/23 Tampines Industrial Avenue 5','Singapore',67892121);
+INSERT INTO `sa45grp13ca`.`suppliers` (`name`,`address`,`country`,`contact`) VALUES ('Ubisoft','1 Fusionopolis Walk Solaris #09-01/02','Singapore',64083000);
+INSERT INTO `sa45grp13ca`.`suppliers` (`name`,`address`,`country`,`contact`) VALUES ('Bethesda','30 Chai Chee St, Singapore 468979','Singapore',64445891);
+INSERT INTO `sa45grp13ca`.`suppliers` (`name`,`address`,`country`,`contact`) VALUES ('Sumsamg','Chehova St','Korea',2393495);
+INSERT INTO `sa45grp13ca`.`suppliers` (`name`,`address`,`country`,`contact`) VALUES ('Alibaba','969 West Cost','China',58502088);
+INSERT INTO `sa45grp13ca`.`suppliers` (`name`,`address`,`country`,`contact`) VALUES ('Nubian\'s Goat\'s Milk','21 Choa Chu Kang North 6','Singapore',561231908);
+INSERT INTO `sa45grp13ca`.`suppliers` (`name`,`address`,`country`,`contact`) VALUES ('Sushi Tatsusho','Fukuoka Prefecture, Fukuoka, Chuo','Takasago',925223390);
+INSERT INTO `sa45grp13ca`.`suppliers` (`name`,`address`,`country`,`contact`) VALUES ('NetEase','Keyun Rd Zhongshan Ave Motorway Interchange','China',2085105163);
+INSERT INTO `sa45grp13ca`.`suppliers` (`name`,`address`,`country`,`contact`) VALUES ('Blizzard Entertainment','Prudential Tower30 Cecil Street','America',92231018);
+INSERT INTO `sa45grp13ca`.`suppliers` (`name`,`address`,`country`,`contact`) VALUES ('Moonlight Cake House',', Jalan Indah 16/12, Taman Bukit Indah','Malaysia',2329922);
+INSERT INTO `sa45grp13ca`.`suppliers` (`name`,`address`,`country`,`contact`) VALUES ('Pilot Pen','21/23 Tampines Industrial Avenue 5','Singapore',67892121);
+INSERT INTO `sa45grp13ca`.`suppliers` (`name`,`address`,`country`,`contact`) VALUES ('Ubisoft','1 Fusionopolis Walk Solaris #09-01/02','Singapore',64083000);
+INSERT INTO `sa45grp13ca`.`suppliers` (`name`,`address`,`country`,`contact`) VALUES ('Bethesda','30 Chai Chee St, Singapore 468979','Singapore',64445891);
+INSERT INTO `sa45grp13ca`.`suppliers` (`name`,`address`,`country`,`contact`) VALUES ('Sumsamg','Chehova St Condion','Korea',2393495);
+INSERT INTO `sa45grp13ca`.`suppliers` (`name`,`address`,`country`,`contact`) VALUES ('Alibaba','969 West','China',58502088);
+INSERT INTO `sa45grp13ca`.`suppliers` (`name`,`address`,`country`,`contact`) VALUES ('Nubian\'s Goat\'s Milk','21 Choa Chu Kang North 6','Singapore',561231908);
+INSERT INTO `sa45grp13ca`.`suppliers` (`name`,`address`,`country`,`contact`) VALUES ('Sushi Tatsusho','Fukuoka Prefecture, Fukuoka, Chuo','Takasago',925223390);
+INSERT INTO `sa45grp13ca`.`suppliers` (`name`,`address`,`country`,`contact`) VALUES ('NetEase','Keyun Rd Zhongshan Ave Motorway Interchange','China',2085105163);
+INSERT INTO `sa45grp13ca`.`suppliers` (`name`,`address`,`country`,`contact`) VALUES ('Blizzard Entertainment','Prudential Tower30 Cecil Street,','America',92231018);
+INSERT INTO `sa45grp13ca`.`suppliers` (`name`,`address`,`country`,`contact`) VALUES ('Moonlight Cake House',', Jalan Indah 16/12, Taman Bukit Indah','Malaysia',2329922);
+
