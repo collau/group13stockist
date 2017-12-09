@@ -1,50 +1,76 @@
 package nus.iss.sa45.team13.stockist.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="productdata")
 public class Product {
+	@Id
+	@Column(name = "partnumber")
+	private int partNumber;
 	
-	private int partnumber;
+	@Column(name = "partname")
 	private String partName;
+	
+	@Column(name = "unitprice")
 	private double unitPrice;
+	
+	@Column(name = "description")
 	private String description;
+	
+	@Column(name = "color")
 	private String color;
+	
+	@Column(name = "dimension")
 	private double dimension;
-	private int supplierid;
-	private int reorderpoint;
-	private int minorder;
+	
+	@Column(name = "supplierid")
+	private int supplierId;
+	
+	@Column(name = "reorderpoint")
+	private int reorderPoint;
+	
+	@Column(name = "minorder")
+	private int minOrder;
+	
+	@Column(name = "shelflocation")
 	private String shelfLocation;
+	
+	@Column(name = "category")
 	private String category;
 	
 	public Product() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	
-	
 
 	public Product(int partnumber, String partName, double unitPrice, String description, String color,
 			double dimension, int supplierid, int reorderpoint, int minorder, String shelfLocation, String category) {
 		super();
-		this.partnumber = partnumber;
+		this.partNumber = partnumber;
 		this.partName = partName;
 		this.unitPrice = unitPrice;
 		this.description = description;
 		this.color = color;
 		this.dimension = dimension;
-		this.supplierid = supplierid;
-		this.reorderpoint = reorderpoint;
-		this.minorder = minorder;
+		this.supplierId = supplierid;
+		this.reorderPoint = reorderpoint;
+		this.minOrder = minorder;
 		this.shelfLocation = shelfLocation;
 		this.category = category;
 	}
 
 
 
-	public int getPartnumber() {
-		return partnumber;
+	public int getPartNumber() {
+		return partNumber;
 	}
 
-	public void setPartnumber(int partnumber) {
-		this.partnumber = partnumber;
+	public void setPartNumber(int partNumber) {
+		this.partNumber = partNumber;
 	}
 
 	public String getPartName() {
@@ -87,28 +113,28 @@ public class Product {
 		this.dimension = dimension;
 	}
 
-	public int getSupplierid() {
-		return supplierid;
+	public int getSupplierId() {
+		return supplierId;
 	}
 
-	public void setSupplierid(int supplierid) {
-		this.supplierid = supplierid;
+	public void setSupplierId(int supplierId) {
+		this.supplierId = supplierId;
 	}
 
-	public int getReorderpoint() {
-		return reorderpoint;
+	public int getReorderPoint() {
+		return reorderPoint;
 	}
 
-	public void setReorderpoint(int reorderpoint) {
-		this.reorderpoint = reorderpoint;
+	public void setReorderPoint(int reorderPoint) {
+		this.reorderPoint = reorderPoint;
 	}
 
-	public int getMinorder() {
-		return minorder;
+	public int getMinOrder() {
+		return minOrder;
 	}
 
-	public void setMinorder(int minorder) {
-		this.minorder = minorder;
+	public void setMinOrder(int minOrder) {
+		this.minOrder = minOrder;
 	}
 
 	public String getShelfLocation() {
@@ -129,13 +155,11 @@ public class Product {
 
 	@Override
 	public String toString() {
-		return "Product [partnumber=" + partnumber + ", partName=" + partName + ", unitPrice=" + unitPrice
+		return "Product [partnumber=" + partNumber + ", partName=" + partName + ", unitPrice=" + unitPrice
 				+ ", description=" + description + ", color=" + color + ", dimension=" + dimension + ", supplierid="
-				+ supplierid + ", reorderpoint=" + reorderpoint + ", minorder=" + minorder + ", shelfLocation="
+				+ supplierId + ", reorderpoint=" + reorderPoint + ", minorder=" + minOrder + ", shelfLocation="
 				+ shelfLocation + ", category=" + category + "]";
 	}
 
-	
-	
 	
 }
