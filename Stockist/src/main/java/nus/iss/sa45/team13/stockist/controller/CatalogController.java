@@ -18,9 +18,8 @@ public class CatalogController {
 	
 	@RequestMapping(value= {"/catalog"})
 	public ModelAndView ProductListPage() {
-		ModelAndView mav = new ModelAndView("catalogpage");
-		List<Product> departmentList = cService.findAllProducts();
-		mav.addObject("departmentList", departmentList);
+		List<Product> catalog = cService.findAllProducts();
+		ModelAndView mav = new ModelAndView("catalogpage", "catalog", catalog);
 		return mav;
 	}
 }
