@@ -15,6 +15,7 @@
 
 <nav class="navbar navbar-inverse navbar-fixed-top" style="margin-top: 50px">
 <div class="container-fluid">
+
 HELLO How are you 
 </div>
 </nav>
@@ -22,16 +23,12 @@ HELLO How are you
 
 <c:forEach var="product" items="${catalog}">
 
-<li>Part number : ${product.partName}</li>
-<li>Part Name :${product.partNumber}</li>
-<li>Part UnitPrice :${product.unitPrice}</li>
+<li>Part Name : ${product.partName}</li>
+<li>Part Number : ${product.partNumber}</li>
+<li>Part UnitPrice : ${product.unitPrice}</li>
 <br>
-
 </c:forEach>
-
-
-
-
 </c:if>
+
 </body>
 </html>
