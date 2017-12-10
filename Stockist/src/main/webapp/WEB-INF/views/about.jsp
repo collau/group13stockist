@@ -7,6 +7,17 @@
 	<title>About</title>
 </head>
 <body>
+	
+	<% if (request.isUserInRole("ADMIN")) { %>
+	   <h1>Only Admin can see this!</h1>
+	<% } %>
+	
+	<% if (request.isUserInRole("MECH")) { %>
+	   <h1>Only Mechanic can see this!</h1>
+	<% } %>
+	
+	
+	
 	<section style="padding-top:30px;">
         <article>
             <div class="ui grid" style="margin: 0 20px 0 20px">
