@@ -8,11 +8,11 @@
 </head>
 <body>
 	
-	<% if (request.isUserInRole("ADMIN")) { %>
+	<% if (request.isUserInRole("Admin")) { %>
 	   <h1>Only Admin can see this!</h1>
 	<% } %>
 	
-	<% if (request.isUserInRole("STAFF")) { %>
+	<% if (request.isUserInRole("Staff")) { %>
 	   <h1>Only Mechanic can see this!</h1>
 	<% } %>
 	
