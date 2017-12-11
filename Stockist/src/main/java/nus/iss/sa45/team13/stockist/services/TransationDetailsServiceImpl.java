@@ -29,7 +29,7 @@ public class TransationDetailsServiceImpl implements TransationDetailsService {
 
 
 	@Override
-	public TransationDetails createTransationDetails(TransationDetails t) {
+	public TransationDetails newTranRrecordPage(TransationDetails t) {
 		
 		return transationDetailsrepository.save(t);
 	}

@@ -8,5 +8,5 @@ public interface TransationService {
 
 	ArrayList<Transation> findAll();
 	Transation findTransation(int tranid);
-	Transation createTranstion(Transation t);
+	Transation newTranRrecordPage(Transation tt);
 }
