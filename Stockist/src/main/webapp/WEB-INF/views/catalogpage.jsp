@@ -44,6 +44,7 @@
 	<br>
 	<br>
 
+
 	<c:if test="${fn:length(catalog) gt 0 }">
 		<c:forEach var="p" items="${catalog}">
 			<div class="col-sm-12 col-md-4 col-lg-3">

@@ -15,4 +15,18 @@ public class ProductServiceImpl implements ProductService {
 	@Autowired
 	private ProductRepository productRepository;
 	
+	@Override
+	public Product findOne(int a) {
+		// TODO Auto-generated method stub
+		Product p = productRepository.findOne(a);
+		return p;
+	}
+	
+	@Override
+	public ArrayList<Product> findAllProducts() {
+
+		ArrayList<Product> al = (ArrayList<Product>) productRepository.findAll();
+		return al;
+	}
+	
 }
