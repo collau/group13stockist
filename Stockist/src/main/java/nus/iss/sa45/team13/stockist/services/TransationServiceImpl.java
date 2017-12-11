@@ -16,11 +16,7 @@ public class TransationServiceImpl implements TransationService {
 	private TransationRepository transationRepository;
 	
 	
-	@Override
-	public Transation createTranstion(Transation t) {
-			
-		return transationRepository.save(t);
-	}
+	
 
 	@Override
 	public Transation findTransation(int tranid) {
@@ -32,6 +28,11 @@ public class TransationServiceImpl implements TransationService {
 	public ArrayList<Transation> findAll() {
 		ArrayList<Transation> s=(ArrayList<Transation>) transationRepository.findAll();
 		return s;
+	}
+
+	@Override
+	public Transation newTranRrecordPage(Transation t) {
+		return transationRepository.save(t);
 	}
 
 	
