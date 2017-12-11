@@ -1,11 +1,15 @@
 package nus.iss.sa45.team13.stockist.services;
 
+
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import nus.iss.sa45.team13.stockist.model.LocalinventoryList;
 
 import nus.iss.sa45.team13.stockist.repository.LocalInventoryListRepository;
 
+@Service
 public class LocalInventoryListServiceImpl implements LocalInventoryListService {
 
 	@Autowired
@@ -16,6 +20,12 @@ public class LocalInventoryListServiceImpl implements LocalInventoryListService 
 		
 		return localRepository.findOne(storeqty);
 	}
+
+	/*@Override
+	public ArrayList<Product> updateQuantity(int storeqty) {
+		
+		return localRepository.updateQuantity(storeqty);
+	}*/
 	
 	
 
