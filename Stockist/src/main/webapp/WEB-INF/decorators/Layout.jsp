@@ -25,7 +25,7 @@
 <body>
 
 	<!-- Top Bar -->
-	<c:url value="/image/RedBook.png" var="redbook"/>
+	<c:url value="/image/carmechanic(white).png" var="carmechanicw"/>
     <nav class="navbar navbar-inverse navbar-static-top">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -37,7 +37,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="/Team13Bookshop/home">
-                    <img src="${redbook}" height="30" style="padding-bottom: 5px;"></img>
+                    <img src="${carmechanicw}" height="30" style="padding-bottom: 5px;"></img>
                 </a>
                 <c:choose>
                    	<c:when test="${pageContext.request.userPrincipal.name != null}">
