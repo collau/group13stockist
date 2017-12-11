@@ -39,18 +39,23 @@
                 <a class="navbar-brand" href="/Team13Bookshop/home">
                     <img src="${redbook}" height="30" style="padding-bottom: 5px;"></img>
                 </a>
-                <a class="navbar-brand" href="/Team13Bookshop/home">Team 13 Stockist</a>
+                <c:choose>
+                   	<c:when test="${pageContext.request.userPrincipal.name != null}">
+						<a class="navbar-brand" href="/Team13Bookshop/home">
+							${pageContext.request.userPrincipal.name}
+						</a>
+					</c:when>
+					<c:otherwise>
+						<a class="navbar-brand" href="/Team13Bookshop/home">Team 13 Stockist</a>
+					</c:otherwise>							
+				</c:choose>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
-                <ul class="nav navbar-nav navbar-right">
-                    
-                    <li><a href="http://www.bing.com">Bing</a></li>
-                    <li><a href="http://www.google.com">Google</a></li>
+                <ul class="nav navbar-nav navbar-right"> 
                     <li>
                     	<!-- LOGIN STATUS -->
                     	<c:choose>
-	                    	<c:when test="${pageContext.request.userPrincipal.name != null}">
-								${pageContext.request.userPrincipal.name}
+	                    	<c:when test="${pageContext.request.userPrincipal.name != null}">								
 								<a href="<c:url value="/logout" />" >Logout</a>
 							</c:when>	
 							<c:otherwise>
@@ -68,9 +73,12 @@
     <dec:body />
     
 	<!-- Footer -->
-	<div id="footer" align="center">
-	  <hr>
-		<small>Made by SA45 Team 13</small>
+
+	<div style="clear:both;">
+		<div id="col-12 footer" align="center">
+		  <hr>
+			<small>Made by SA45 Team 13</small>
+		</div>
 	</div>
 	
 	<!-- Bootstrap Code -->
