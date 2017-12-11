@@ -51,13 +51,13 @@
 				</c:choose>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
-                <ul class="nav navbar-nav navbar-right"> 
-                    <li>
-                    	<% if (request.isUserInRole("Admin")) { %>
-	   					<li>
-   							<a href="<c:url value="/admin/register" />">Create New User</a>
-               			</li>
-						<% } %> 
+                <ul class="nav navbar-nav navbar-right">
+                	<% if (request.isUserInRole("Admin")) { %>
+   					<li>
+						<a href="<c:url value="/admin/register" />">Create New User</a>
+              		</li>
+					<% } %>  
+                    <li>                    	
                     	<!-- LOGIN STATUS -->
                     	<c:choose>
 	                    	<c:when test="${pageContext.request.userPrincipal.name != null}">								
