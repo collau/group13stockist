@@ -12,18 +12,23 @@
 </head>
 <body>
 
-	<nav class="navbar navbar-inverse navbar-fixed-top"
-		style="margin-top: 50px">
+
+	<nav class="navbar navbar-inverse navbar-static-top"
+		style="margin-top: -20px">
 	<div class="container-fluid">
 		<div class="navbar-header">
 			<a class="navbar-brand" href="#">Catalog</a>
 		</div>
-		<form class="navbar-form navbar-left">
+
+		<form:form method="POST" modelAttribute="product"
+			action="${pageContext.request.contextPath}/catalog"
+			class="navbar-form navbar-left">
 			<div class="form-group">
-				<input type="text" class="form-control" placeholder="Part Name/ Number">
+				<form:input path="partName" class="form-control"/>
 			</div>
-			<button type="submit" class="btn btn-default">Search</button>
-		</form>
+			<input type="submit" value="Search" class="btn btn-default" />
+		</form:form>
+
 		<ul class="nav navbar-nav">
 			<li class="dropdown"><a class="dropdown-toggle"
 				data-toggle="dropdown" href="#">Categories <span class="caret"></span></a>
@@ -36,16 +41,20 @@
 	</div>
 	</nav>
 
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+
 	<c:if test="${fn:length(catalog) gt 0 }">
-		<c:forEach var="product" items="${catalog}">
+		<c:forEach var="p" items="${catalog}">
 			<div class="col-sm-12 col-md-4 col-lg-3">
 				<ul class="list-group">
-					<li class="list-group-item">Image Here</li>
-					<li class="list-group-item">Part Name : ${product.partName}</li>
-					<li class="list-group-item">Part Number :
-						${product.partNumber}</li>
-					<li class="list-group-item">Part UnitPrice :
-						${product.unitPrice}</li>
+					<li class="list-group-item">Image here</li>
+					<li class="list-group-item">Part Name : ${p.partName}</li>
+					<li class="list-group-item">Part Number : ${p.partNumber}</li>
+					<li class="list-group-item">Part UnitPrice : ${p.unitPrice}</li>
 					<li class="list-group-item">Qty in Stock: to be extracted</li>
 					<li class="list-group-item"><button type="button" class="btn">Select</button></li>
 				</ul>
