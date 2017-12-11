@@ -11,4 +11,5 @@ public interface CatalogService {
 
 	ArrayList<Product> findAllProducts();
 
+	
 }

@@ -2,14 +2,14 @@ package nus.iss.sa45.team13.stockist.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="transactiondetails")
 public class TransationDetails {
 	
-	
+	@Id
 	@Column(name="transid")
 	private int transid;
 	@Column(name="partnumber")
