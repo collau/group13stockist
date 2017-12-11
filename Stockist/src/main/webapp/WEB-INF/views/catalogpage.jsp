@@ -54,7 +54,7 @@
 						<li class="list-group-item">Part Number : ${p.partNumber}</li>
 						<li class="list-group-item">Part UnitPrice : ${p.unitPrice}</li>
 						<li class="list-group-item">Qty in Stock: to be extracted</li>
-						<li class="list-group-item"><button type="button" class="btn" href="${pageContext.request.contextPath}/viewproduct/${p.partNumber}">select</button></li>
+						<li class="list-group-item"><a href="${pageContext.request.contextPath}/viewproduct/${p.partNumber}">select</a></li>
 					</ul>
 			</div>
 		</c:forEach>
