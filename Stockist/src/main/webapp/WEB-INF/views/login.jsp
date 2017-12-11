@@ -7,11 +7,12 @@
 <title>Login</title>
 </head>
 <body>
-	<form action="@{/login}" method="POST" class="form-signin"> 
-			UserID <input type="text" id="userid" name="userid"/> <br/> 
-			Password <input type="password"  id="password" name="password"/> <br /> 
-				
-			<button class="btn btn-lg btn-primary btn-block" name="Submit" value="Login" type="Submit" >Login</button>
-</form>
+	<!-- TODO : Add css tags -->
+	<form action="login" method="POST">
+		UserID <input type="text" id="userid" name="userid" /> <br />
+		Password <input type="password" id="password" name="password" /> <br />
+
+		<button class="btn btn-lg" name="Submit" value="Submit" type="Submit"></button>
+	</form>
 </body>
 </html>

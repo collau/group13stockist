@@ -7,7 +7,7 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class GeneralController {
 	
-	@RequestMapping(value= {"/about", "/"})
+	@RequestMapping(value= {"/about"})
 	public ModelAndView AboutPage() {
 		ModelAndView mav = new ModelAndView("about");
 		
