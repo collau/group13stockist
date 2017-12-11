@@ -12,5 +12,10 @@ public interface CatalogService {
 	ArrayList<Product> findAllProducts();
 	
 	Product findOne(int a); 
+	
+	ArrayList<Product> findByName(String partName);
+	
+	ArrayList<Product> findByNumber(int partNumber);
 
+	
 }

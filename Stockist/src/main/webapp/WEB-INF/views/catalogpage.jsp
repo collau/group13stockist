@@ -13,8 +13,8 @@
 <body>
 
 
-	<nav class="navbar navbar-inverse navbar-fixed-top"
-		style="margin-top: 50px">
+	<nav class="navbar navbar-inverse navbar-static-top"
+		style="margin-top: -20px">
 	<div class="container-fluid">
 		<div class="navbar-header">
 			<a class="navbar-brand" href="#">Catalog</a>
@@ -24,10 +24,9 @@
 			action="${pageContext.request.contextPath}/catalog"
 			class="navbar-form navbar-left">
 			<div class="form-group">
-				<form:input path="partNumber" class="form-control"/>
+				<form:input path="partName" class="form-control"/>
 			</div>
 			<input type="submit" value="Search" class="btn btn-default" />
-
 		</form:form>
 
 		<ul class="nav navbar-nav">
@@ -47,7 +46,6 @@
 	<br>
 	<br>
 	<br>
-	
 
 	<c:if test="${fn:length(catalog) gt 0 }">
 		<c:forEach var="p" items="${catalog}">

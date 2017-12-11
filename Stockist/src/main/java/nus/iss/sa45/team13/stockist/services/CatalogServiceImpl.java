@@ -1,7 +1,7 @@
 package nus.iss.sa45.team13.stockist.services;
 
 import java.util.ArrayList;
-import java.util.List;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -31,6 +31,20 @@ public class CatalogServiceImpl implements CatalogService {
 	public Product findOne(int a) {
 		// TODO Auto-generated method stub
 		Product p = productRepository.findOne(a);
+		return p;
+	}
+	
+	@Override
+	public ArrayList<Product> findByName(String partName) {
+		// TODO Auto-generated method stub
+		ArrayList<Product> p = productRepository.findProductByName(partName);
+		return p;
+	}
+	
+	@Override
+	public ArrayList<Product> findByNumber(int partNumber) {
+		// TODO Auto-generated method stub
+		ArrayList<Product> p = productRepository.findProductByNumber(partNumber);
 		return p;
 	}
 
