@@ -33,5 +33,19 @@ public class CatalogServiceImpl implements CatalogService {
 		Product p = productRepository.findOne(a);
 		return p;
 	}
+	
+	@Override
+	public ArrayList<Product> findByName(String partName) {
+		// TODO Auto-generated method stub
+		ArrayList<Product> p = productRepository.findProductByName(partName);
+		return p;
+	}
+	
+	@Override
+	public ArrayList<Product> findByNumber(int partNumber) {
+		// TODO Auto-generated method stub
+		ArrayList<Product> p = productRepository.findProductByNumber(partNumber);
+		return p;
+	}
 
 }

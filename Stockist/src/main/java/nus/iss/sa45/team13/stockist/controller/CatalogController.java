@@ -41,13 +41,28 @@ public class CatalogController {
 //
 //		if (result.hasErrors())
 //			return new ModelAndView("department-new");
-		ArrayList<Product> catalog = new ArrayList<Product>();
-		Product p= cService.findOne(product.getPartNumber());
-		catalog.add(p);
+		try {
+			product.setPartNumber(Integer.parseInt(product.getPartName()));
+		}
+		catch(Exception e) {
+			product.setPartNumber(-1);
+		}
+		
+		//ArrayList<Product> catalog = new ArrayList<Product>();
+		ArrayList<Product> catalog= cService.findByName(product.getPartName());
+		System.out.println(product.getPartName());
+		ArrayList<Product> catalog2= cService.findByNumber(product.getPartNumber());
+		catalog.addAll(catalog2);
+		//Product p= cService.findOne(product.getPartNumber());
+		
+		//catalog.add(p);
+		
 		ModelAndView mav = new ModelAndView("catalogpage", "catalog", catalog);
 		return mav;
 	}
 	
+	
+
 	
 	
 }
