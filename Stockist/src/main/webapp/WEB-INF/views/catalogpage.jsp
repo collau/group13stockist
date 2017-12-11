@@ -12,7 +12,6 @@
 </head>
 <body>
 
-
 	<nav class="navbar navbar-inverse navbar-static-top"
 		style="margin-top: -20px">
 	<div class="container-fluid">
@@ -24,7 +23,7 @@
 			action="${pageContext.request.contextPath}/catalog"
 			class="navbar-form navbar-left">
 			<div class="form-group">
-				<form:input path="partName" class="form-control"/>
+				<form:input path="partName" class="form-control" />
 			</div>
 			<input type="submit" value="Search" class="btn btn-default" />
 		</form:form>
@@ -40,8 +39,6 @@
 		</ul>
 	</div>
 	</nav>
-
-	<br>
 	<br>
 	<br>
 	<br>
@@ -50,14 +47,15 @@
 	<c:if test="${fn:length(catalog) gt 0 }">
 		<c:forEach var="p" items="${catalog}">
 			<div class="col-sm-12 col-md-4 col-lg-3">
-				<ul class="list-group">
-					<li class="list-group-item">Image here</li>
-					<li class="list-group-item">Part Name : ${p.partName}</li>
-					<li class="list-group-item">Part Number : ${p.partNumber}</li>
-					<li class="list-group-item">Part UnitPrice : ${p.unitPrice}</li>
-					<li class="list-group-item">Qty in Stock: to be extracted</li>
-					<li class="list-group-item"><button type="button" class="btn">Select</button></li>
-				</ul>
+					<ul class="list-group">
+					
+						<li class="list-group-item"><img src="/Stockist/image/ttt.jpg" class="img-thumbnail"></li>
+						<li class="list-group-item">Part Name : ${p.partName}</li>
+						<li class="list-group-item">Part Number : ${p.partNumber}</li>
+						<li class="list-group-item">Part UnitPrice : ${p.unitPrice}</li>
+						<li class="list-group-item">Qty in Stock: to be extracted</li>
+						<li class="list-group-item"><button type="button" class="btn" href="${pageContext.request.contextPath}/viewproduct/${p.partNumber}">select</button></li>
+					</ul>
 			</div>
 		</c:forEach>
 	</c:if>
