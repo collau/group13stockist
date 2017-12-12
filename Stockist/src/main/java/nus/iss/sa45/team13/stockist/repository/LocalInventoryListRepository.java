@@ -11,6 +11,6 @@ import nus.iss.sa45.team13.stockist.model.Product;
 
 public interface LocalInventoryListRepository extends JpaRepository<LocalinventoryList, Integer> {
 
-	/*@Query("SELECT e FROM LocalInventoryList e  where e.storeqty like CONCAT('%',:storeqty,'%')")
-	ArrayList<Product> updateQuantity(@Param("storeqty") int storeqty);*/
+
+
 }

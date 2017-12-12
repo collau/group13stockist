@@ -16,9 +16,9 @@ public class LocalInventoryListServiceImpl implements LocalInventoryListService 
 	private LocalInventoryListRepository localRepository;
 
 	@Override
-	public LocalinventoryList findOne(int storeqty) {
+	public LocalinventoryList findOne(int partno) {
 
-		return localRepository.findOne(storeqty);
+		return localRepository.findOne(partno);
 	}
 
 	@Override
@@ -27,10 +27,12 @@ public class LocalInventoryListServiceImpl implements LocalInventoryListService 
 		return (ArrayList<LocalinventoryList>) localRepository.findAll();
 	}
 
-	/*
-	 * @Override public ArrayList<Product> updateQuantity(int storeqty) {
-	 * 
-	 * return localRepository.updateQuantity(storeqty); }
-	 */
+	@Override
+	public LocalinventoryList reduceQty(LocalinventoryList local) {
+		
+		return localRepository.save(local);
+	}
+
+
 
 }

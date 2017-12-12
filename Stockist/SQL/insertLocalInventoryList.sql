@@ -1,3 +1,5 @@
+INSERT INTO `sa45grp13ca`.`localinventorylist` (`partnumber`, `storeqty`) VALUES ('10001', '5');
+INSERT INTO `sa45grp13ca`.`localinventorylist` (`partnumber`, `storeqty`) VALUES ('10002', '1');
 INSERT INTO `sa45grp13ca`.`localinventorylist` (`partnumber`, `storeqty`) VALUES ('10003', '5');
 INSERT INTO `sa45grp13ca`.`localinventorylist` (`partnumber`, `storeqty`) VALUES ('10004', '1');
 INSERT INTO `sa45grp13ca`.`localinventorylist` (`partnumber`, `storeqty`) VALUES ('10005', '2');
@@ -51,5 +53,4 @@ UPDATE `sa45grp13ca`.`localinventorylist` SET `storeqty`='18' WHERE `partnumber`
 UPDATE `sa45grp13ca`.`localinventorylist` SET `storeqty`='43' WHERE `partnumber`='10029';
 UPDATE `sa45grp13ca`.`localinventorylist` SET `storeqty`='23' WHERE `partnumber`='10030';
 UPDATE `sa45grp13ca`.`localinventorylist` SET `storeqty`='86' WHERE `partnumber`='10031';
-UPDATE `sa45grp13ca`.`localinventorylist` SET `storeqty`='23' WHERE `partnumber`='10032';
-UPDATE `sa45grp13ca`.`localinventorylist` SET `storeqty`='12' WHERE `partnumber`='10033';
+
