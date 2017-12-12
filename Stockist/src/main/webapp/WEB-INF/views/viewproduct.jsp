@@ -11,13 +11,22 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<nav class="navbar navbar-inverse navbar-static-top"
+		style="margin-top: -20px">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<a class="navbar-brand"
+				href="${pageContext.request.contextPath}/catalog">Catalog</a>
+		</div>
+	</nav>
 
 	<form:form modelAttribute="emptyproduct"
-		action="${pageContext.request.contextPath}/viewproduct/${currentproduct.partNumber}" method="POST">
+		action="${pageContext.request.contextPath}/viewproduct/${currentproduct.partNumber}"
+		method="POST">
 
 		<div class="col-sm-12 col-md-4 col-lg-3">
 			<ul class="list-group">
-				<li class="list-group-item">Image here</li>
+				<li class="list-group-item"><img src="/Stockist/image/ttt.jpg" class="img-thumbnail"></li>
 				<li class="list-group-item">Part Name :
 					${currentproduct.partName}</li>
 				<li class="list-group-item">Part Number :
@@ -40,10 +49,11 @@
 				<li class="list-group-item">Category:
 					${currentproduct.category}</li>
 			</ul>
+			Quantity Selected:<br>
+			<form:input path="partNumber" class="form-control" />
+			<input type="submit" value="Save" />
 		</div>
-		<form:input path="partNumber" class="form-control" />
-		<input type="submit" value="Save" />
-	</form:form>
 
+	</form:form>
 </body>
 </html>

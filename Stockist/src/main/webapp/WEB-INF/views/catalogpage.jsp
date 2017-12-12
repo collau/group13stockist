@@ -19,7 +19,7 @@
 		style="margin-top: -20px">
 	<div class="container-fluid">
 		<div class="navbar-header">
-			<a class="navbar-brand" href="#">Catalog</a>
+			<a class="navbar-brand" href="${pageContext.request.contextPath}/catalog">Catalog</a>
 		</div>
 
 		<form:form method="POST" modelAttribute="product"
@@ -41,7 +41,7 @@
 					<li><a href="#">Car Accessories</a></li>
 				</ul></li>
 		</ul> -->
-		<a href="${pageContext.request.contextPath}/translist">CART<span class="badge">${sessionData}</span></a>
+		<a class="navbar-brand" href="${pageContext.request.contextPath}/translist">CART<span class="badge">${sessionData}</span></a>
 		
 	</div>
 	</nav>
