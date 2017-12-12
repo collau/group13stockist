@@ -2,10 +2,14 @@ package nus.iss.sa45.team13.stockist.controller;
 
 import java.util.ArrayList;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,6 +22,8 @@ import nus.iss.sa45.team13.stockist.model.User;
 import nus.iss.sa45.team13.stockist.repository.RoleRepository;
 import nus.iss.sa45.team13.stockist.repository.UserRepository;
 import nus.iss.sa45.team13.stockist.services.UserService;
+import nus.iss.sa45.team13.stockist.validators.RegisterFormValidator;
+import nus.iss.sa45.team13.stockist.validators.RoleValidator;
 
 @Controller
 public class CredentialsController {
@@ -31,6 +37,16 @@ public class CredentialsController {
 	@Autowired
 	UserService userService;
 	
+//	@Autowired
+//	RegisterFormValidator rfValidator;
+	
+	@Autowired
+	RoleValidator rValidator;
+	
+	@InitBinder("role")
+	private void initRegisterFormBinder(WebDataBinder binder) {
+		binder.setValidator(rValidator);
+	}
 
 	@RequestMapping(value = { "/login" }, method = RequestMethod.GET)
 	public ModelAndView LoginPage(Authentication authentication) {
@@ -86,7 +102,11 @@ public class CredentialsController {
 	}
 
 	@RequestMapping(value = "/admin/register", method = RequestMethod.POST)
-	public ModelAndView CompleteRegistration(@ModelAttribute RegisterForm userDetails, BindingResult result) {
+	public ModelAndView CompleteRegistration(@ModelAttribute @Valid RegisterForm userDetails, BindingResult result) {
+		
+		if(result.hasErrors())
+			return new ModelAndView("register");
+		
 		ModelAndView mav = new ModelAndView();
 
 		Role role = new Role();
@@ -136,7 +156,11 @@ public class CredentialsController {
 	}
 
 	@RequestMapping(value = "/admin/users/edit", method = RequestMethod.POST)
-	public ModelAndView ModifySelectedUser(@ModelAttribute("selectedUser") RegisterForm modifiedRole) {
+	public ModelAndView ModifySelectedUser(@ModelAttribute("selectedUser") @Valid RegisterForm modifiedRole, BindingResult result) {
+		
+		if(result.hasErrors())
+			return new ModelAndView("editUser");
+		
 		ModelAndView mav = new ModelAndView("redirect:/admin/users/view");
 		Role r = new Role();
 		System.out.println("XXX ! " + modifiedRole.getUserId());

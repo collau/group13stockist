@@ -19,10 +19,13 @@
 			<div class="form-group">
 				<label>Name</label>
 				<form:input path="name" class="form-control" />
+				<form:errors path="name" cssStyle="color: red;"/>
 			</div>
 			<div class="form-group">
 				<label>Is Administrator</label>
-				<form:checkbox path="adminStatus" />
+				No<form:radiobutton path="adminStatus" value="false"/>
+				Yes<form:radiobutton path="adminStatus" value="true"/>
+				<form:errors path="adminStatus" cssStyle="color: red;"/>
 			</div>
 			<div class="form-group">
 				<input type="submit" value="Save Changes" class="btn btn-lg" />

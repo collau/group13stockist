@@ -15,22 +15,27 @@
 			<div class="form-group">
 				<label>Name</label>
 				<form:input path="name" class="form-control"/>
+			<form:errors path="name" cssStyle="color: red;"/>
 			</div>
 			<div class="form-group">
 				<label>User Name </label>
 				<form:input path="userName" class="form-control"/>
+				<form:errors path="userName" cssStyle="color: red;"/>
 			</div>
 			<div class="form-group">
 				<label>Password </label>
 				<form:password  path="password" class="form-control"/>
+				<form:errors path="password" cssStyle="color: red;"/>
 			</div>
 			<div class="form-group">
 				<label>Confirm Password </label>
 				<form:password path="confirmPassword" class="form-control"/>
+				<form:errors path="confirmPassword" cssStyle="color: red;"/>
 			</div>
 			<div class="form-group">
 				<label>Is Administrator</label>
 				<form:checkbox path="adminStatus"/>
+				<form:errors path="adminStatus" cssStyle="color: red;"/>
 			</div>
 			<div class="form-group">
 				<input type="submit" value="Create" class="btn btn-lg" />
