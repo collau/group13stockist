@@ -77,6 +77,7 @@ public class ReportController {
 		ClassLoader classLoader = getClass().getClassLoader();
 		String inputFileLocation = new File(classLoader.getResource("ReorderReport.jrxml").getFile()).getAbsolutePath().toString();
 		inputFileLocation = URLDecoder.decode(inputFileLocation, "UTF-8");
+		System.out.println("Opening Jasper File : " + inputFileLocation);
 		JasperDesign reorderReportStream = JRXmlLoader.load(inputFileLocation);
 //		InputStream reorderReportStream = getClass().getResourceAsStream("/reports/ReorderReport.jrxml");
 		Map<String,Object> params = new HashMap<>();
