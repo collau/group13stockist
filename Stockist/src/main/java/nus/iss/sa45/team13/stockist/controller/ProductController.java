@@ -15,6 +15,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.ServletRequestDataBinder;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,16 +28,24 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import nus.iss.sa45.team13.stockist.model.Product;
-import nus.iss.sa45.team13.stockist.model.Suppliers;
 import nus.iss.sa45.team13.stockist.services.ProductService;
+import nus.iss.sa45.team13.stockist.validators.ProductValidator;
 
 @Controller
 public class ProductController {
 
 	@Autowired
 	private ProductService pService;
-	
-	Map<Integer,Integer> saved = new HashMap<Integer,Integer>();
+
+	@Autowired
+	private ProductValidator pValidator;
+
+	@InitBinder("product")
+	private void initProductBinder(WebDataBinder binder) {
+		binder.setValidator(pValidator);
+	}
+
+	Map<Integer, Integer> saved = new HashMap<Integer, Integer>();
 
 	@RequestMapping(value = "/viewproduct/{partNumber}", method = RequestMethod.GET)
 	public ModelAndView ProductDetails(@PathVariable int partNumber) {
@@ -46,7 +57,7 @@ public class ProductController {
 		return mav;
 
 	}
-	
+
 	@RequestMapping(value = "/admin/viewproduct/list", method = RequestMethod.GET)
 	public ModelAndView ProductListPage() {
 		ModelAndView mav = new ModelAndView("product-list");
@@ -56,96 +67,86 @@ public class ProductController {
 		return mav;
 
 	}
-	
+
 	@RequestMapping(value = "/admin/viewproduct/create", method = RequestMethod.GET)
 	public ModelAndView newProductPage() {
 		Product p = new Product();
-		ModelAndView mav = new ModelAndView("product-new", "viewproduct", p);
+		ModelAndView mav = new ModelAndView("product-new", "product", p);
 		return mav;
 
 	}
-	
+
 	@RequestMapping(value = "/admin/viewproduct/create", method = RequestMethod.POST)
-	public ModelAndView createNewProduct(@ModelAttribute @Valid Product product, 
-			BindingResult result, final RedirectAttributes redirattr) {
-		
-		if(result.hasErrors())
+	public ModelAndView createNewProduct(@ModelAttribute @Valid Product product, BindingResult result,
+			final RedirectAttributes redirattr) {
+
+		if (result.hasErrors())
 			return new ModelAndView("product-new");
-		
-		
+
 		ModelAndView mav = new ModelAndView();
 		pService.createProduct(product);
-		
-		String message = "New Product "+product.getPartNumber()+", "+product.getPartName()+" has been created.";
+
+		String message = "New Product " + product.getPartNumber() + ", " + product.getPartName() + " has been created.";
 		mav.setViewName("redirect:/admin/viewproduct/list");
-		redirattr.addFlashAttribute("message",message);
+		redirattr.addFlashAttribute("message", message);
 		return mav;
 
 	}
-	
-	@RequestMapping(value="/edit/{partnumber}", method=RequestMethod.GET)
-	public ModelAndView editProductPage(@PathVariable String partnumber)
-	{
-		ModelAndView mav = new ModelAndView ("product-edit");
-		Product p = pService.findOne(Integer.parseInt(partnumber));
-		mav.addObject("partnumber", p);
+
+	@RequestMapping(value = "/admin/viewproduct/edit/{partNumber}", method = RequestMethod.GET)
+	public ModelAndView editProductPage(@PathVariable String partNumber) {
+		ModelAndView mav = new ModelAndView("product-edit");
+		Product p = pService.findOne(Integer.parseInt(partNumber));
+		mav.addObject("product", p);
 		return mav;
-		
+
 	}
-	
-//	@RequestMapping(value="/edit/{partnumber", method=RequestMethod.POST)
-//	public ModelAndView confirmEditProductPage(@ModelAttribute @Valid Product product, 
-//			BindingResult result, final RedirectAttributes redirattr, @PathVariable String partnumber)
-//	{
-//		if(result.hasErrors())
-//			return new ModelAndView("product-edit");
-//		
-//		ModelAndView mav = new ModelAndView ("redirect:/admin/suppliers/list");
-//		sservice.updateSupplier(supplier);
-//		String msg = "Supplier successfully updated.";
-//		redirattr.addFlashAttribute("message", msg);
-//		return mav;
 
-	// @RequestMapping(value = "/person-form")
-	// public ModelAndView personPage() {
-	// return new ModelAndView("person-page", "person-entity", new Person());
-	// }
+	@RequestMapping(value = "/admin/viewproduct/edit/{partNumber}", method = RequestMethod.POST)
+	public ModelAndView confirmEditProductPage(@ModelAttribute @Valid Product product, BindingResult result,
+			final RedirectAttributes redirattr, @PathVariable String partNumber) {
+		if (result.hasErrors())
+			return new ModelAndView("product-edit");
 
-//	 @RequestMapping(value = "/viewproduct/record")
-//	 public ModelAndView processProduct(@ModelAttribute Product product) {
-//	 ModelAndView mav = new ModelAndView();
-//	 mav.setViewName("redirect:/catalog");
-//	
-//	 mav.addObject("productObj", product);
-//	
-//	 return mav;
-//	 }
+		ModelAndView mav = new ModelAndView("redirect:/admin/viewproduct/list");
+		pService.updateProduct(product);
+		String msg = "Product successfully updated.";
+		redirattr.addFlashAttribute("message", msg);
+		return mav;
+	}
+
+	@RequestMapping(value = "/admin/viewproduct/delete/{partNumber}", method = RequestMethod.GET) // which record id
+	public ModelAndView deleteProduct(@PathVariable String partNumber, final RedirectAttributes redirattr) {
+		ModelAndView mav = new ModelAndView("redirect:/admin/viewproduct/list");
+		Product p = pService.findOne(Integer.parseInt(partNumber));
+		pService.deleteProduct(p);
+		String msg = "Product successfully removed.";
+		redirattr.addFlashAttribute("message", msg);
+		return mav;
+	}
 
 	@RequestMapping(value = "/viewproduct/{partNumber}", method = RequestMethod.POST)
 	public ModelAndView AddToCart(@ModelAttribute Product savedQty, BindingResult result,
 			RedirectAttributes redirectAttributes, HttpSession httpSession, @PathVariable int partNumber) {
 
-		
-		
 		Product savedproduct = pService.findOne(partNumber);
 		System.out.println("savedproduct found" + savedproduct.toString());
-		
+
 		saved.put(partNumber, savedQty.getPartNumber());
-		
+
 		httpSession.setAttribute("saved", saved);
-		
-		
+
 		Set set = saved.entrySet();
 		Iterator iterator = set.iterator();
-		
-		while(iterator.hasNext()) {
-			Map.Entry mentry = (Map.Entry)iterator.next();
-			System.out.print("partnumber is "+ mentry.getKey() + "qty is ");
+
+		while (iterator.hasNext()) {
+			Map.Entry mentry = (Map.Entry) iterator.next();
+			System.out.print("partnumber is " + mentry.getKey() + "qty is ");
 			System.out.println(mentry.getValue());
 		}
-		
-		
-		System.out.println("Productsesson found" + ((Map<Integer, Integer>) httpSession.getAttribute("saved")).get(partNumber));
+
+		System.out.println(
+				"Productsesson found" + ((Map<Integer, Integer>) httpSession.getAttribute("saved")).get(partNumber));
 		ModelAndView mav = new ModelAndView("redirect:/catalog");
 		return mav;
 	}

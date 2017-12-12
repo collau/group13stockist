@@ -8,10 +8,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Create New Product</title>
+<title>Edit Suppliers</title>
 </head>
 <body>
-
 	<nav class="navbar navbar-inverse navbar-static-top"
 		style="margin-top: -20px">
 	<div class="container-fluid">
@@ -21,19 +20,25 @@
 	</div>
 	</nav>
 
-	<br />
-	<br />
-	<br />
+	<br>
+	<br>
 
 	<form:form method="POST" modelAttribute="product"
-		action="${pageContext.request.contextPath}/admin/viewproduct/create">
+		action="${pageContext.request.contextPath}/admin/viewproduct/edit/${product.partNumber}.html">
 		<!-- modelAttr must match with model -->
 		<table>
 			<tbody>
+
 				<tr>
-					<td>Create New Product</td>
+					<td>Edit Product</td>
 					<br>
 				</tr>
+				<tr>
+					<td>Part Number</td>
+					<td><form:input path="partNumber" readonly="true" /></td>
+					<td><form:errors path="partNumber" cssStyle="color: red;" /></td>
+				</tr>
+
 				<tr>
 					<td>Part Name</td>
 					<td><form:input path="partName" /></td>
@@ -50,12 +55,12 @@
 					<td><form:errors path="description" cssStyle="color: red;" /></td>
 				</tr>
 				<tr>
-					<td>Color</td>
+					<td>color</td>
 					<td><form:input path="color" /></td>
 					<td><form:errors path="color" cssStyle="color: red;" /></td>
 				</tr>
 				<tr>
-					<td>Dimension</td>
+					<td>dimension</td>
 					<td><form:input path="dimension" /></td>
 					<td><form:errors path="dimension" cssStyle="color: red;" /></td>
 				</tr>
@@ -65,12 +70,13 @@
 					<td><form:errors path="supplierId" cssStyle="color: red;" /></td>
 				</tr>
 				<tr>
-					<td>ReOrder Point</td>
+					<td>Reorder Point</td>
 					<td><form:input path="reorderPoint" /></td>
 					<td><form:errors path="reorderPoint" cssStyle="color: red;" /></td>
 				</tr>
+
 				<tr>
-					<td>Min. Order</td>
+					<td>Min Order</td>
 					<td><form:input path="minOrder" /></td>
 					<td><form:errors path="minOrder" cssStyle="color: red;" /></td>
 				</tr>
@@ -84,15 +90,13 @@
 					<td><form:input path="category" /></td>
 					<td><form:errors path="category" cssStyle="color: red;" /></td>
 				</tr>
-
 				<tr>
-					<td><input type="submit" value="Create Product" /></td>
+					<td><input type="submit" value="Save Details" /></td>
 					<td></td>
 					<td></td>
 				</tr>
 			</tbody>
 		</table>
 	</form:form>
-
 </body>
 </html>

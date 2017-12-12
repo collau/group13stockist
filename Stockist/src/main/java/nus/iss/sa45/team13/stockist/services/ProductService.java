@@ -11,5 +11,9 @@ public interface ProductService {
 	ArrayList<Product> findAllProducts();
 
 	Product createProduct(Product p);
+	
+	Product updateProduct(Product p);
+	
+	void deleteProduct(Product p);
 
 }
