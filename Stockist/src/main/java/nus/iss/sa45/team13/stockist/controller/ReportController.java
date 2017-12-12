@@ -43,6 +43,7 @@ import net.sf.jasperreports.export.SimplePdfExporterConfiguration;
 import net.sf.jasperreports.export.SimplePdfReportConfiguration;
 import net.sf.jasperreports.engine.export.JRPdfExporter;
 
+@RequestMapping(value = "/admin/")
 @Controller
 public class ReportController {
 	
@@ -51,7 +52,7 @@ public class ReportController {
 	private ApplicationContext appContext;
 	
 	
-	@RequestMapping(value = "/admin/generateReport", method = RequestMethod.GET)
+	@RequestMapping(value = "/generateReport", method = RequestMethod.GET)
 	@ResponseBody
 	public void generateReport(HttpServletResponse response) throws JRException, SQLException, IOException, ClassNotFoundException
 	{
