@@ -47,10 +47,10 @@ public class Product {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Product(int partnumber, String partName, double unitPrice, String description, String color,
+	public Product(int partNumber, String partName, double unitPrice, String description, String color,
 			double dimension, int supplierid, int reorderpoint, int minorder, String shelfLocation, String category) {
 		super();
-		this.partNumber = partnumber;
+		this.partNumber = partNumber;
 		this.partName = partName;
 		this.unitPrice = unitPrice;
 		this.description = description;

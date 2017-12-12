@@ -20,17 +20,16 @@ import nus.iss.sa45.team13.stockist.model.Suppliers;
 import nus.iss.sa45.team13.stockist.services.SuppliersService;
 import nus.iss.sa45.team13.stockist.validators.SuppliersValidator;
 
-
 @RequestMapping(value = "/admin/suppliers")
 @Controller
 public class SuppliersController {
 
 	@Autowired
 	SuppliersService sservice;
-	
+
 	@Autowired
 	private SuppliersValidator sValidator;
-	
+
 	@InitBinder("suppliers")
 	private void initSuppliersBinder(WebDataBinder binder) {
 		binder.setValidator(sValidator);
@@ -53,59 +52,55 @@ public class SuppliersController {
 		return mav;
 
 	}
-	
+
 	@RequestMapping(value = "/create", method = RequestMethod.POST)
-	public ModelAndView createNewSupplier(@ModelAttribute @Valid Suppliers supplier, 
-			BindingResult result, final RedirectAttributes redirattr) {
-		
-		if(result.hasErrors())
+	public ModelAndView createNewSupplier(@ModelAttribute @Valid Suppliers supplier, BindingResult result,
+			final RedirectAttributes redirattr) {
+
+		if (result.hasErrors())
 			return new ModelAndView("supplier-new");
-		
-		
+
 		ModelAndView mav = new ModelAndView();
 		sservice.createSupplier(supplier);
-		
-		String message = "New Student "+supplier.getSupplierid()+", "+supplier.getName()+" has been created.";
+
+		String message = "New Student " + supplier.getSupplierid() + ", " + supplier.getName() + " has been created.";
 		mav.setViewName("redirect:/admin/suppliers/list");
-		redirattr.addFlashAttribute("message",message);
+		redirattr.addFlashAttribute("message", message);
 		return mav;
 
 	}
-	
-	@RequestMapping(value="/edit/{supplierid}", method=RequestMethod.GET)
-	public ModelAndView editSupplierPage(@PathVariable String supplierid)
-	{
-		ModelAndView mav = new ModelAndView ("suppliers-edit");
+
+	@RequestMapping(value = "/edit/{supplierid}", method = RequestMethod.GET)
+	public ModelAndView editSupplierPage(@PathVariable String supplierid) {
+		ModelAndView mav = new ModelAndView("suppliers-edit");
 		Suppliers s = sservice.findOneSupplier(Integer.parseInt(supplierid));
 		mav.addObject("suppliers", s);
 		return mav;
-		
+
 	}
-	
-	@RequestMapping(value="/edit/{supplierid}", method=RequestMethod.POST)
-	public ModelAndView confirmEditSupplierPage(@ModelAttribute @Valid Suppliers supplier, 
-			BindingResult result, final RedirectAttributes redirattr, @PathVariable String supplierid)
-	{
-		if(result.hasErrors())
+
+	@RequestMapping(value = "/edit/{supplierid}", method = RequestMethod.POST)
+	public ModelAndView confirmEditSupplierPage(@ModelAttribute @Valid Suppliers supplier, BindingResult result,
+			final RedirectAttributes redirattr, @PathVariable String supplierid) {
+		if (result.hasErrors())
 			return new ModelAndView("suppliers-edit");
-		
-		ModelAndView mav = new ModelAndView ("redirect:/admin/suppliers/list");
+
+		ModelAndView mav = new ModelAndView("redirect:/admin/suppliers/list");
 		sservice.updateSupplier(supplier);
 		String msg = "Supplier successfully updated.";
 		redirattr.addFlashAttribute("message", msg);
 		return mav;
-		
+
 	}
-	
-	@RequestMapping(value = "/delete/{supplierid}", method = RequestMethod.GET)	// which record id
-	public ModelAndView deleteStudent(@PathVariable String supplierid,final RedirectAttributes redirattr) {	//Pathvariable reads from query string ...url"?="
+
+	@RequestMapping(value = "/delete/{supplierid}", method = RequestMethod.GET) // which record id
+	public ModelAndView deleteSupplier(@PathVariable String supplierid, final RedirectAttributes redirattr) {
 		ModelAndView mav = new ModelAndView("redirect:/admin/suppliers/list");
 		Suppliers s = sservice.findOneSupplier(Integer.parseInt(supplierid));
 		sservice.deleteSupplier(s);
-		String msg= "Student successfully removed.";
+		String msg = "Supplier successfully removed.";
 		redirattr.addFlashAttribute("message", msg);
 		return mav;
 	}
-
 
 }

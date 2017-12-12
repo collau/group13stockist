@@ -44,11 +44,12 @@ public class ProductController {
 	private void initProductBinder(WebDataBinder binder) {
 		binder.setValidator(pValidator);
 	}
-	
-//    @InitBinder
-//    protected void initBinder(final HttpServletRequest request, final ServletRequestDataBinder binder) {
-//        binder.addValidators(pValidator);
-//    }
+
+	// @InitBinder
+	// protected void initBinder(final HttpServletRequest request, final
+	// ServletRequestDataBinder binder) {
+	// binder.addValidators(pValidator);
+	// }
 
 	Map<Integer, Integer> saved = new HashMap<Integer, Integer>();
 
@@ -98,13 +99,36 @@ public class ProductController {
 
 	}
 
-	@RequestMapping(value = "/edit/{partnumber}", method = RequestMethod.GET)
-	public ModelAndView editProductPage(@PathVariable String partnumber) {
+	@RequestMapping(value = "/admin/viewproduct/edit/{partNumber}", method = RequestMethod.GET)
+	public ModelAndView editProductPage(@PathVariable String partNumber) {
 		ModelAndView mav = new ModelAndView("product-edit");
-		Product p = pService.findOne(Integer.parseInt(partnumber));
-		mav.addObject("partnumber", p);
+		Product p = pService.findOne(Integer.parseInt(partNumber));
+		mav.addObject("product", p);
 		return mav;
 
+	}
+
+	@RequestMapping(value = "/admin/viewproduct/edit/{partNumber}", method = RequestMethod.POST)
+	public ModelAndView confirmEditProductPage(@ModelAttribute @Valid Product product, BindingResult result,
+			final RedirectAttributes redirattr, @PathVariable String partNumber) {
+		if (result.hasErrors())
+			return new ModelAndView("product-edit");
+
+		ModelAndView mav = new ModelAndView("redirect:/admin/viewproduct/list");
+		pService.updateProduct(product);
+		String msg = "Product successfully updated.";
+		redirattr.addFlashAttribute("message", msg);
+		return mav;
+	}
+
+	@RequestMapping(value = "/admin/viewproduct/delete/{partNumber}", method = RequestMethod.GET) // which record id
+	public ModelAndView deleteProduct(@PathVariable String partNumber, final RedirectAttributes redirattr) {
+		ModelAndView mav = new ModelAndView("redirect:/admin/viewproduct/list");
+		Product p = pService.findOne(Integer.parseInt(partNumber));
+		pService.deleteProduct(p);
+		String msg = "Product successfully removed.";
+		redirattr.addFlashAttribute("message", msg);
+		return mav;
 	}
 
 	// @RequestMapping(value="/edit/{partnumber", method=RequestMethod.POST)

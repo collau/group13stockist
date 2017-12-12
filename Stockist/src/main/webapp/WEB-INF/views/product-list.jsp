@@ -23,7 +23,7 @@
 
 	</div>
 	</nav>
-	<a href="${pageContext.request.contextPath}/admin/product/create">Add
+	<a href="${pageContext.request.contextPath}/admin/viewproduct/create">Add
 	Product</a>
 	<br>
 	<br>
@@ -63,9 +63,9 @@
 					<td>${product.shelfLocation}</td>
 					<td>${product.category}</td>
  					<td align="center"><a
-						href="${pageContext.request.contextPath}/admin/product/edit/${suppliers.supplierid}.html">Edit</a></td> 
+						href="${pageContext.request.contextPath}/admin/viewproduct/edit/${product.partNumber}.html">Edit</a></td> 
 					<td><a
-						href="${pageContext.request.contextPath}/admin/product/delete/${suppliers.supplierid}.html">Delete</a></td>
+						href="${pageContext.request.contextPath}/admin/viewproduct/delete/${product.partNumber}.html">Delete</a></td>
 				</tr>
 			</c:forEach>
 		</tbody>
