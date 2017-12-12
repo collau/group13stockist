@@ -30,8 +30,6 @@ import nus.iss.sa45.team13.stockist.services.ProductService;
 @Controller
 public class ProductController {
 
-	
-	
 	@Autowired
 	private ProductService pService;
 	
@@ -73,6 +71,7 @@ public class ProductController {
 		saved.put(partNumber, savedQty.getPartNumber());
 		
 		httpSession.setAttribute("saved", saved);
+		
 		
 		Set set = saved.entrySet();
 		Iterator iterator = set.iterator();

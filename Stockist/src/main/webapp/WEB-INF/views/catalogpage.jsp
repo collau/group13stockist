@@ -28,6 +28,7 @@
 				<form:input path="partName" class="form-control" />
 			</div>
 			<input type="submit" value="Search" class="btn btn-default" />
+			
 		</form:form>
 
 		<ul class="nav navbar-nav">
@@ -39,6 +40,7 @@
 					<li><a href="#">Car Accessories</a></li>
 				</ul></li>
 		</ul>
+		<a href="${pageContext.request.contextPath}/translist">CART</a>>
 	</div>
 	</nav>
 	<br>
