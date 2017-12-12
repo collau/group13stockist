@@ -53,7 +53,7 @@
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
-                	<% if (request.isUserInRole("Admin")) { %>
+                	<% if (request.isUserInRole("ROLE_ADMIN")) { %>
                 	<li>
 						<a href="<c:url value="/admin/users/view" />">View Users</a>
               		</li>

@@ -56,11 +56,11 @@ public class CredentialsController {
 			// String name = authentication.getName();
 			String role = authentication.getAuthorities().toString();
 
-			if (role.equals("[Admin]")) {
+			if (role.equals("[ROLE_ADMIN]")) {
 				System.out.println("REDIRECTING TO ADMIN PAGE...");
 				// TODO : If logged in goto to homepage based on role
 				mav.setViewName("redirect:/about");
-			} else if (role.equals("[Staff]")) {
+			} else if (role.equals("[ROLE_STAFF]")) {
 				System.out.println("REDIRECTING TO STAFF PAGE...");
 				// TODO : If logged in goto to homepage based on role
 				mav.setViewName("redirect:/about");
@@ -96,7 +96,7 @@ public class CredentialsController {
 		user.setUserId(userDetails.getUserName());
 		user.setPassword(userDetails.getPassword());
 		role.setName(userDetails.getName());
-		role.setRole(userDetails.isAdminStatus() ? "Admin" : "Staff");
+		role.setRole(userDetails.isAdminStatus() ? "ROLE_ADMIN" : "ROLE_STAFF");
 
 		// Save data to table
 		userDetails.setUserId(userService.saveUser(user, role));
@@ -129,7 +129,7 @@ public class CredentialsController {
 		Role role = roleRepo.findRoleByUserId(userId);
 		RegisterForm selectedUser = new RegisterForm();
 		selectedUser.setName(role.getName());
-		selectedUser.setAdminStatus(role.getRole().equals("Admin"));
+		selectedUser.setAdminStatus(role.getRole().equals("ROLE_ADMIN"));
 		selectedUser.setUserId(userId);
 		mav.addObject("selectedUser", selectedUser);
 		return mav;
@@ -142,7 +142,7 @@ public class CredentialsController {
 		System.out.println("XXX ! " + modifiedRole.getUserId());
 		r.setStaffId(modifiedRole.getUserId());
 		r.setName(modifiedRole.getName());
-		r.setRole(modifiedRole.isAdminStatus() ? "Admin" : "Staff");
+		r.setRole(modifiedRole.isAdminStatus() ? "ROLE_ADMIN" : "ROLE_STAFF");
 		roleRepo.saveAndFlush(r);
 		return mav;
 	}
