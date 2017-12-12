@@ -32,7 +32,7 @@
 			
 		</form:form>
 
-		<ul class="nav navbar-nav">
+		<!--  <ul class="nav navbar-nav">
 			<li class="dropdown"><a class="dropdown-toggle"
 				data-toggle="dropdown" href="#">Categories <span class="caret"></span></a>
 				<ul class="dropdown-menu">
@@ -40,7 +40,7 @@
 					<li><a href="#">Car Tyre</a></li>
 					<li><a href="#">Car Accessories</a></li>
 				</ul></li>
-		</ul>
+		</ul> -->
 		<a href="${pageContext.request.contextPath}/translist">CART<span class="badge">${sessionData}</span></a>
 		
 	</div>
