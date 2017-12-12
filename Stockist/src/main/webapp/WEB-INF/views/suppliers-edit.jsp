@@ -15,55 +15,54 @@
 		style="margin-top: -20px">
 	<div class="container-fluid">
 		<div class="navbar-header">
-			<a class="navbar-brand" href="#">Suppliers</a>
+			<a class="navbar-brand" href="#">Edit Suppliers</a>
 		</div>
 		</div>
 		</nav>
 		
 		<br>
-		<br>
 		
 		<form:form method="POST" modelAttribute="suppliers" 
 action="${pageContext.request.contextPath}/admin/suppliers/edit/${suppliers.supplierid}.html"> <!-- modelAttr must match with model -->
+	<p style="margin-left:10"/>
 	<table>
 		<tbody>
 				<tr>
-				<td>Edit Supplier</td>
-				<br>
-				</tr>
-				<tr>
 				<td>Supplier ID</td>
-				<td><form:input path="supplierid" readonly = "true"/></td>
+				<td><form:input path="supplierid" readonly = "true" size="50"/></td>
 				<td><form:errors path="supplierid" cssStyle="color: red;"/></td>
 			</tr>
 				
 				<tr>
 				<td>Supplier Name</td>
-				<td><form:input path="name" /></td>
+				<td><form:input path="name" size="50"/></td>
 				<td><form:errors path="name" cssStyle="color: red;"/></td>
 			</tr>
 			<tr>
 				<td>Supplier Address</td>
-				<td><form:input path="address" /></td>
+				<td><form:input path="address" size="50"/></td>
 				<td><form:errors path="address" cssStyle="color: red;"/></td>
 			</tr>
 			<tr>
 				<td>Country of Supplier</td>
-				<td><form:input path="country" /></td>
+				<td><form:input path="country" size="50"/></td>
 				<td><form:errors path="country" cssStyle="color: red;"/></td>
 			</tr>
 			<tr>
 				<td>Supplier Contact</td>
-				<td><form:input path="contact" /></td>
+				<td><form:input path="contact" size="50"/></td>
 				<td><form:errors path="contact" cssStyle="color: red;"/></td>
 			</tr>
 			<tr>
-				<td><input type="submit" value="Save Details" /></td>
+				<td></td>
 				<td></td>
 				<td></td>
 			</tr>
 		</tbody>
 	</table>
+	<br/>
+	<br/>
+	<input type="submit" value="Save Details" />
 </form:form>
 </body>
 </html>

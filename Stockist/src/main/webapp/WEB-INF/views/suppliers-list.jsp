@@ -31,12 +31,10 @@
 
 	</div>
 	</nav>
-	<p style="margin-left:10"/>
+	<p style="margin-left:10">
 	<a href="${pageContext.request.contextPath}/admin/suppliers/create" class="btn btn-default btn-lg">Add
 	Supplier</a>
-	<br>
-	<br>
-	<br>
+
 	<br>
 	<br>
 	
