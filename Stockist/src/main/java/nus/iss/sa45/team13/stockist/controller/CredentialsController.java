@@ -99,7 +99,7 @@ public class CredentialsController {
 		role.setRole(userDetails.isAdminStatus() ? "Admin" : "Staff");
 
 		// Save data to table
-		userService.saveUser(user, role);
+		userDetails.setUserId(userService.saveUser(user, role));
 
 		mav.addObject("newUser", userDetails);
 		mav.setViewName("confirmRegistration");

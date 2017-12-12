@@ -22,11 +22,11 @@
 			</div>
 			<div class="form-group">
 				<label>Password </label>
-				<form:input path="password" class="form-control"/>
+				<form:password  path="password" class="form-control"/>
 			</div>
 			<div class="form-group">
 				<label>Confirm Password </label>
-				<form:input path="confirmPassword" class="form-control"/>
+				<form:password path="confirmPassword" class="form-control"/>
 			</div>
 			<div class="form-group">
 				<label>Is Administrator</label>
