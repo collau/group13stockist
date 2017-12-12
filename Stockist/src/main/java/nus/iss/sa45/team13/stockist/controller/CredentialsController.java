@@ -17,6 +17,7 @@ import nus.iss.sa45.team13.stockist.model.Role;
 import nus.iss.sa45.team13.stockist.model.User;
 import nus.iss.sa45.team13.stockist.repository.RoleRepository;
 import nus.iss.sa45.team13.stockist.repository.UserRepository;
+import nus.iss.sa45.team13.stockist.services.UserService;
 
 @Controller
 public class CredentialsController {
@@ -26,6 +27,10 @@ public class CredentialsController {
 
 	@Autowired
 	RoleRepository roleRepo;
+	
+	@Autowired
+	UserService userService;
+	
 
 	@RequestMapping(value = { "/login" }, method = RequestMethod.GET)
 	public ModelAndView LoginPage(Authentication authentication) {
@@ -51,17 +56,21 @@ public class CredentialsController {
 			// String name = authentication.getName();
 			String role = authentication.getAuthorities().toString();
 
-			if (role.equals("[Admin]")) {
+			if (role.equals("[ROLE_ADMIN]")) {
 				System.out.println("REDIRECTING TO ADMIN PAGE...");
-			} else if (role.equals("[Staff]")) {
+				// TODO : If logged in goto to homepage based on role
+				mav.setViewName("redirect:/about");
+			} else if (role.equals("[ROLE_STAFF]")) {
 				System.out.println("REDIRECTING TO STAFF PAGE...");
+				// TODO : If logged in goto to homepage based on role
+				mav.setViewName("redirect:/about");
+			} else {
+				// No idea what role is this, goto about page
+				mav.setViewName("redirect:/about");
 			}
-
-			// TODO : If logged in goto to homepage based on role
-			mav.setViewName("redirect:/about");
 		} else {
 			// If not logged in, redirect to about page
-			mav.setViewName("redirect:/about");
+			mav.setViewName("redirect:/login");
 		}
 
 		return mav;
@@ -87,12 +96,10 @@ public class CredentialsController {
 		user.setUserId(userDetails.getUserName());
 		user.setPassword(userDetails.getPassword());
 		role.setName(userDetails.getName());
-		role.setRole(userDetails.isAdminStatus() ? "Admin" : "Staff");
+		role.setRole(userDetails.isAdminStatus() ? "ROLE_ADMIN" : "ROLE_STAFF");
 
 		// Save data to table
-		role = roleRepo.save(role);
-		user.setStaffId(role.getStaffId());
-		user = userRepo.save(user);
+		userDetails.setUserId(userService.saveUser(user, role));
 
 		mav.addObject("newUser", userDetails);
 		mav.setViewName("confirmRegistration");
@@ -122,7 +129,7 @@ public class CredentialsController {
 		Role role = roleRepo.findRoleByUserId(userId);
 		RegisterForm selectedUser = new RegisterForm();
 		selectedUser.setName(role.getName());
-		selectedUser.setAdminStatus(role.getRole().equals("Admin"));
+		selectedUser.setAdminStatus(role.getRole().equals("ROLE_ADMIN"));
 		selectedUser.setUserId(userId);
 		mav.addObject("selectedUser", selectedUser);
 		return mav;
@@ -135,8 +142,16 @@ public class CredentialsController {
 		System.out.println("XXX ! " + modifiedRole.getUserId());
 		r.setStaffId(modifiedRole.getUserId());
 		r.setName(modifiedRole.getName());
-		r.setRole(modifiedRole.isAdminStatus() ? "Admin" : "Staff");
+		r.setRole(modifiedRole.isAdminStatus() ? "ROLE_ADMIN" : "ROLE_STAFF");
 		roleRepo.saveAndFlush(r);
+		return mav;
+	}
+	
+	@RequestMapping(value = "/admin/users/delete/{userId}", method = RequestMethod.GET)
+	public ModelAndView DeleteSelectedUser(@PathVariable Integer userId) {
+		ModelAndView mav = new ModelAndView("redirect:/admin/users/view");
+		Role role = roleRepo.findRoleByUserId(userId);
+		roleRepo.delete(role);		
 		return mav;
 	}
 }

@@ -22,7 +22,7 @@ public class UserServiceImpl implements UserService {
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
 
 	@Override
-	public String saveUser(User user, Role role) {
+	public Integer saveUser(User user, Role role) {
 		Role savedRole;
 		
 		user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
@@ -30,7 +30,7 @@ public class UserServiceImpl implements UserService {
 		user.setStaffId(savedRole.getStaffId());
 		userRepository.save(user);
 		
-		return Integer.toString(savedRole.getStaffId());
+		return savedRole.getStaffId();
 	}
 
 }

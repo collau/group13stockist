@@ -12,41 +12,35 @@
 	<form:form action="${homepage}" method="GET" modelAttribute="newUser">
 		<c:choose>
 			<c:when test="${newUser.adminStatus}">
-				New Admin Account Created<br/>					
+				<div class="alert alert-success">
+					New Admin Account Created
+				</div>				
 			</c:when>
 			<c:otherwise>
-				New Staff Account Created<br/>
+				<div class="alert alert-success">
+					New Staff Account Created
+				</div>
 			</c:otherwise>
 		</c:choose>	
-		
-		<table>
-			<tr>
-				<th>
-					Name
-				</th>
-				<td>
-					${newUser.name}
-				</td>
-			</tr>
-			<tr>
-				<th>
-					User Name
-				</th>
-				<td>
-					${newUser.userName}
-				</td>
-			</tr>
-			<tr>
-				<th>
-					Password
-				</th>
-				<td>
-					${newUser.password}
-				</td>
-			</tr>
-		</table>
-		
-		<input type="submit" value="Return" class="blcass"/>
+		<div  class="form-group">
+			<label>Staff ID</label>
+			<input type="text" readonly="readonly" class="form-control" value="${newUser.userId}"/>
+		</div>
+		<div  class="form-group">
+			<label>Name</label>
+			<input type="text" readonly="readonly" class="form-control" value="${newUser.name}"/>
+		</div>
+		<div  class="form-group">
+			<label>User name</label>
+			<input type="text" readonly="readonly" class="form-control" value="${newUser.userName}"/>
+		</div>
+		<div  class="form-group">
+			<label>Password</label>
+			<input type="text" readonly="readonly" class="form-control" value="${newUser.password}"/>
+		</div>
+		<div class="form-group">	
+			<input type="submit" value="Return" class="btn btn-lg"/>
+		</div>
 	</form:form>
 	
 		

@@ -25,6 +25,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import nus.iss.sa45.team13.stockist.model.Product;
+import nus.iss.sa45.team13.stockist.model.Suppliers;
 import nus.iss.sa45.team13.stockist.services.ProductService;
 
 @Controller
@@ -39,10 +40,71 @@ public class ProductController {
 	public ModelAndView ProductDetails(@PathVariable int partNumber) {
 
 		Product product = pService.findOne(partNumber);
+		Product emptyproduct = new Product();
 		ModelAndView mav = new ModelAndView("viewproduct", "currentproduct", product);
+		mav.addObject("emptyproduct", emptyproduct);
 		return mav;
 
 	}
+	
+	@RequestMapping(value = "/admin/viewproduct/list", method = RequestMethod.GET)
+	public ModelAndView ProductListPage() {
+		ModelAndView mav = new ModelAndView("product-list");
+		ArrayList<Product> productList = (ArrayList<Product>) pService.findAllProducts();
+		mav.addObject("productList", productList);
+
+		return mav;
+
+	}
+	
+	@RequestMapping(value = "/admin/viewproduct/create", method = RequestMethod.GET)
+	public ModelAndView newProductPage() {
+		Product p = new Product();
+		ModelAndView mav = new ModelAndView("product-new", "viewproduct", p);
+		return mav;
+
+	}
+	
+	@RequestMapping(value = "/admin/viewproduct/create", method = RequestMethod.POST)
+	public ModelAndView createNewProduct(@ModelAttribute @Valid Product product, 
+			BindingResult result, final RedirectAttributes redirattr) {
+		
+		if(result.hasErrors())
+			return new ModelAndView("product-new");
+		
+		
+		ModelAndView mav = new ModelAndView();
+		pService.createProduct(product);
+		
+		String message = "New Product "+product.getPartNumber()+", "+product.getPartName()+" has been created.";
+		mav.setViewName("redirect:/admin/viewproduct/list");
+		redirattr.addFlashAttribute("message",message);
+		return mav;
+
+	}
+	
+	@RequestMapping(value="/edit/{partnumber}", method=RequestMethod.GET)
+	public ModelAndView editProductPage(@PathVariable String partnumber)
+	{
+		ModelAndView mav = new ModelAndView ("product-edit");
+		Product p = pService.findOne(Integer.parseInt(partnumber));
+		mav.addObject("partnumber", p);
+		return mav;
+		
+	}
+	
+//	@RequestMapping(value="/edit/{partnumber", method=RequestMethod.POST)
+//	public ModelAndView confirmEditProductPage(@ModelAttribute @Valid Product product, 
+//			BindingResult result, final RedirectAttributes redirattr, @PathVariable String partnumber)
+//	{
+//		if(result.hasErrors())
+//			return new ModelAndView("product-edit");
+//		
+//		ModelAndView mav = new ModelAndView ("redirect:/admin/suppliers/list");
+//		sservice.updateSupplier(supplier);
+//		String msg = "Supplier successfully updated.";
+//		redirattr.addFlashAttribute("message", msg);
+//		return mav;
 
 	// @RequestMapping(value = "/person-form")
 	// public ModelAndView personPage() {
