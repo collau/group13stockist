@@ -69,9 +69,9 @@ tr {line-height:1.5;}
 					<td>${product.shelfLocation}</td>
 					<td>${product.category}</td>
  					<td align="center"><a
-						href="${pageContext.request.contextPath}/admin/product/edit/${suppliers.supplierid}.html">Edit</a></td> 
+						href="${pageContext.request.contextPath}/admin/product/edit/${product.partNumber}.html">Edit</a></td> 
 					<td><a
-						href="${pageContext.request.contextPath}/admin/product/delete/${suppliers.supplierid}.html">Delete</a></td>
+						href="${pageContext.request.contextPath}/admin/product/delete/${product.partNumber}.html">Delete</a></td>
 				</tr>
 			</c:forEach>
 		</tbody>
