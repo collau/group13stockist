@@ -49,7 +49,7 @@
 	<br>
 
 	<c:if test="${fn:length(catalog) gt 0 }">
-		<c:forEach var="p" items="${catalog}">
+		<c:forEach var="p" varStatus="loop" items="${catalog}">
 			<div class="col-sm-12 col-md-4 col-lg-3">
 					<ul class="list-group">
 					
@@ -57,7 +57,7 @@
 						<li class="list-group-item">Part Name : ${p.partName}</li>
 						<li class="list-group-item">Part Number : ${p.partNumber}</li>
 						<li class="list-group-item">Part UnitPrice : ${p.unitPrice}</li>
-						<li class="list-group-item">Qty in Stock: to be extracted</li>
+						<li class="list-group-item">Qty in Stock: ${inventoryList[loop.index].storeqty}</li>
 						<li class="list-group-item"><a href="${pageContext.request.contextPath}/viewproduct/${p.partNumber}">select</a></li>
 					</ul>
 			</div>
