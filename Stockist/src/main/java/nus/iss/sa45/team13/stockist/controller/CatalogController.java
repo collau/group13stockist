@@ -25,6 +25,7 @@ import nus.iss.sa45.team13.stockist.model.Product;
 import nus.iss.sa45.team13.stockist.services.CatalogService;
 import nus.iss.sa45.team13.stockist.services.LocalInventoryListService;
 
+
 @Controller
 public class CatalogController {
 	
