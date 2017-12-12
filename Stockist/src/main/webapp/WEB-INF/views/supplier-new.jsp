@@ -16,23 +16,18 @@
 		style="margin-top: -20px">
 	<div class="container-fluid">
 		<div class="navbar-header">
-			<a class="navbar-brand" href="#">Suppliers</a>
+			<a class="navbar-brand" href="#">Create Supplier</a>
 		</div>
 		</div>
 		</nav>
 		
 		<br/>
-		<br/>
-		<br/>
 		
 <form:form method="POST" modelAttribute="suppliers" 
 action="${pageContext.request.contextPath}/admin/suppliers/create"> <!-- modelAttr must match with model -->
+	<p style="margin-left:10"/>
 	<table>
 		<tbody>
-		<tr>
-				<td>Create New Supplier</td>
-				<br>
-		</tr>
 				<tr>
 				<td>Supplier Name</td>
 				<td><form:input path="name" /></td>
@@ -53,13 +48,11 @@ action="${pageContext.request.contextPath}/admin/suppliers/create"> <!-- modelAt
 				<td><form:input path="contact" /></td>
 				<td><form:errors path="contact" cssStyle="color: red;"/></td>
 			</tr>
-			<tr>
-				<td><input type="submit" value="Create Supplier" /></td>
-				<td></td>
-				<td></td>
-			</tr>
 		</tbody>
 	</table>
+	<br/>
+	<br/>
+	<input type="submit" value="Create Supplier" />
 </form:form>
 
 </body>
