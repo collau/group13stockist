@@ -37,13 +37,13 @@ public class ProductController {
 	@Autowired
 	private ProductService pService;
 
-	@Autowired
-	private ProductValidator pValidator;
-
-	@InitBinder("product")
-	private void initProductBinder(WebDataBinder binder) {
-		binder.setValidator(pValidator);
-	}
+//	@Autowired
+//	private ProductValidator pValidator;
+//
+//	@InitBinder("product")
+//	private void initProductBinder(WebDataBinder binder) {
+//		binder.setValidator(pValidator);
+//	}
 
 	Map<Integer, Integer> saved = new HashMap<Integer, Integer>();
 

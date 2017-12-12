@@ -47,14 +47,14 @@ public class TransationController {
 	private TransationDetailsService detailsService;
 	@Autowired
 	private LocalInventoryListService localService;
-	@Autowired
-	private TransationValidator tranValidator;
-
-	@InitBinder("transation")
-	private void initSuppliersBinder(WebDataBinder binder) {
-		binder.setValidator(tranValidator);
-	}
-	
+//	@Autowired
+//	private TransationValidator tranValidator;
+//
+//	@InitBinder("transation")
+//	private void initSuppliersBinder(WebDataBinder binder) {
+//		binder.setValidator(tranValidator);
+//	}
+//	
 	@RequestMapping(value = "/translist", method = RequestMethod.GET)
 	public ModelAndView tranListPage(HttpSession httpSession) {
 
@@ -103,7 +103,7 @@ public class TransationController {
 	
 	
 	@RequestMapping(value = "/translist", method = RequestMethod.POST)
-	public ModelAndView newTranRrecordPage(HttpSession httpSession, @ModelAttribute @Valid Transation trans, BindingResult result, final RedirectAttributes redirectAttributes) {
+	public ModelAndView newTranRrecordPage(HttpSession httpSession, @ModelAttribute Transation trans, BindingResult result, final RedirectAttributes redirectAttributes) {
 
 		/*
 		 * User currUser; try { currUser = userRepo.findUserByUserId(
