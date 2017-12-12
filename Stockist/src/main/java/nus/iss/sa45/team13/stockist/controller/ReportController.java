@@ -46,24 +46,7 @@ import net.sf.jasperreports.engine.export.JRPdfExporter;
 @Controller
 public class ReportController {
 	
-//	@ModelAttribute("jasperRptFormats")
-//	public ArrayList getJasperRptFormats()
-//	{
-//		ArrayList<String> jasperRptFormats = new ArrayList<String>();
-//		jasperRptFormats.add("Html");
-//		jasperRptFormats.add("PDF");
-//		
-//		return jasperRptFormats;
-//	}
-	
-//	@RequestMapping(value = "/loadJasper", method = RequestMethod.GET)
-//	public String loadPg(@ModelAttribute("inputForm") JasperInputForm inputForm, Model model)
-//	{
-//		model.addAttribute("inputForm", inputForm);
-//		
-//		return "loadJasper";
-//	}
-	
+
 	@Autowired
 	private ApplicationContext appContext;
 	
@@ -74,18 +57,25 @@ public class ReportController {
 	{
 		Class.forName("com.mysql.jdbc.Driver");
 		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/sa45grp13ca?useSSL=false", "root", "password");
+		
+		//start - getting the file path
 		ClassLoader classLoader = getClass().getClassLoader();
 		String inputFileLocation = new File(classLoader.getResource("ReorderReport.jrxml").getFile()).getAbsolutePath().toString();
 		inputFileLocation = URLDecoder.decode(inputFileLocation, "UTF-8");
 		System.out.println("Opening Jasper File : " + inputFileLocation);
+		//end - file path
+		
+		//start - loading the JRXML into a JasperReport object
 		JasperDesign reorderReportStream = JRXmlLoader.load(inputFileLocation);
-//		InputStream reorderReportStream = getClass().getResourceAsStream("/reports/ReorderReport.jrxml");
 		Map<String,Object> params = new HashMap<>();
 		JasperReport jasperReport = JasperCompileManager.compileReport(reorderReportStream);
-//		JRSaver.saveObject(jasperReport, "./reports/ReorderReport.jasper");	
-		JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport,params,conn);
-//		JRSaver.saveObject(jasperReport, "/reports/ReorderReport.jasper");
+		//end - loading
 		
+		//start - fill data
+		JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport,params,conn);
+		//end - fill data
+		
+		//prepare and put it into pdf
 		response.setContentType("application/pdf");
 		response.setHeader("Content-disposition", "inline; filename=reorderReport.pdf");
 		final OutputStream outStream = response.getOutputStream();
