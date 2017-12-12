@@ -31,6 +31,7 @@ import nus.iss.sa45.team13.stockist.services.LocalInventoryListService;
 public class CatalogController {
 	
 	
+	
 	@Autowired
 	private CatalogService cService;
 	@Autowired

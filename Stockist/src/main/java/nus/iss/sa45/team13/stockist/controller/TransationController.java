@@ -57,6 +57,7 @@ public class TransationController {
 //		binder.setValidator(tranValidator);
 //	}
 //	
+	
 	@RequestMapping(value = "/translist", method = RequestMethod.GET)
 	public ModelAndView tranListPage(HttpSession httpSession) {
 
