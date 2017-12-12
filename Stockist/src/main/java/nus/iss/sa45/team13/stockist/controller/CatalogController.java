@@ -7,6 +7,7 @@ import java.util.Map;
 import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +24,6 @@ import nus.iss.sa45.team13.stockist.model.Product;
 import nus.iss.sa45.team13.stockist.services.CatalogService;
 
 @Controller
-@SessionAttributes("saved")
 public class CatalogController {
 	
 	
@@ -32,18 +32,27 @@ public class CatalogController {
 	
 	
 	@RequestMapping(value= {"/catalog"}, method = RequestMethod.GET)
-	public ModelAndView CatalogPage(HttpServletRequest request){
+	public ModelAndView CatalogPage(HttpSession httpSession){
+		
+		if(httpSession.getAttribute("saved") != null) {
+			System.out.println("CatalogSesson found" + httpSession.getAttribute("saved").toString());
+		}
+		else {
+			System.out.println("empty");
+		}
 		
 		Product product = new Product();
 		ArrayList<Product> catalog = cService.findAllProducts();
 		ModelAndView mav = new ModelAndView("catalogpage", "product", product);
 		mav.addObject("catalog", catalog);
 		
+		
+		
 		return mav;
 	}
 	
 	@RequestMapping(value = "/catalog", method = RequestMethod.POST)
-	public ModelAndView RefinedCatalogPage(@ModelAttribute Product product, BindingResult result) {
+	public ModelAndView RefinedCatalogPage(@ModelAttribute Product product, BindingResult result, HttpSession httpSession) {
 
 //		if (result.hasErrors())
 //			return new ModelAndView("department-new");
@@ -53,7 +62,7 @@ public class CatalogController {
 		catch(Exception e) {
 			product.setPartNumber(-1);
 		}
-		
+		System.out.println("product found" + product.toString());
 		//ArrayList<Product> catalog = new ArrayList<Product>();
 		ArrayList<Product> catalog= cService.findByName(product.getPartName());
 		System.out.println(product.getPartName());
