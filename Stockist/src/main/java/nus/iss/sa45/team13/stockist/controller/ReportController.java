@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.net.URLDecoder;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -73,11 +74,12 @@ public class ReportController {
 	{
 		Class.forName("com.mysql.jdbc.Driver");
 		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/sa45grp13ca?useSSL=false", "root", "password");
-		
-		JasperDesign reorderReportStream = JRXmlLoader.load("/Users/junyi/git/group13stockist/Stockist/src/main/webapp/reports/ReorderReport.jrxml");
+		ClassLoader classLoader = getClass().getClassLoader();
+		String inputFileLocation = new File(classLoader.getResource("ReorderReport.jrxml").getFile()).getAbsolutePath().toString();
+		inputFileLocation = URLDecoder.decode(inputFileLocation, "UTF-8");
+		JasperDesign reorderReportStream = JRXmlLoader.load(inputFileLocation);
 //		InputStream reorderReportStream = getClass().getResourceAsStream("/reports/ReorderReport.jrxml");
 		Map<String,Object> params = new HashMap<>();
-		System.out.println("XXX " + reorderReportStream == null ? "IS NULL" : "OKIES");
 		JasperReport jasperReport = JasperCompileManager.compileReport(reorderReportStream);
 //		JRSaver.saveObject(jasperReport, "./reports/ReorderReport.jasper");	
 		JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport,params,conn);
@@ -87,17 +89,6 @@ public class ReportController {
 		response.setHeader("Content-disposition", "inline; filename=reorderReport.pdf");
 		final OutputStream outStream = response.getOutputStream();
 		JasperExportManager.exportReportToPdfStream(jasperPrint, outStream);
-	}
-	
-	@RequestMapping(path = "/pdf", method = RequestMethod.GET)
-	public ModelAndView report()
-	{
-		JasperReportsPdfView view = new JasperReportsPdfView();
-		view.setUrl("classpath:Blank_A4.jrxml");
-		view.setApplicationContext(appContext);
-		Map<String,Object> params2 = new HashMap<>();
-		
-		return new ModelAndView(view,params2);
 	}
 }
 
