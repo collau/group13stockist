@@ -63,14 +63,16 @@
 					<% } %>  
                     <li>                    	
                     	<!-- LOGIN STATUS -->
-                    	<c:choose>
-	                    	<c:when test="${pageContext.request.userPrincipal.name != null}">								
-								<a href="<c:url value="/logout" />" >Logout</a>
-							</c:when>	
-							<c:otherwise>
-								<a href="<c:url value="/login" />" >Login</a>
-							</c:otherwise>
-						</c:choose>
+                    	<c:if test="${HideLoginPageFlag != 1}">
+	                    	<c:choose>
+		                    	<c:when test="${pageContext.request.userPrincipal.name != null}">								
+									<a href="<c:url value="/logout" />" >Logout</a>
+								</c:when>	
+								<c:otherwise>	
+									<a href="<c:url value="/login" />" >Login</a>
+								</c:otherwise>
+							</c:choose>
+						</c:if>
                     </li>
                 </ul>
             </div>

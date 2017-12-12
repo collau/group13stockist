@@ -35,7 +35,8 @@ public class CredentialsController {
 			// If logged in goto home page
 			mav.setViewName("redirect:/home");
 		} else {
-			// Otherwise show login page as usual
+			// Otherwise show login page 
+			mav.addObject("HideLoginPageFlag", new Integer(1));
 			mav.setViewName("login");
 		}
 
