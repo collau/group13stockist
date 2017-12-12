@@ -20,8 +20,10 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import nus.iss.sa45.team13.stockist.model.LocalinventoryList;
 import nus.iss.sa45.team13.stockist.model.Product;
 import nus.iss.sa45.team13.stockist.services.CatalogService;
+import nus.iss.sa45.team13.stockist.services.LocalInventoryListService;
 
 @Controller
 public class CatalogController {
@@ -29,6 +31,8 @@ public class CatalogController {
 	
 	@Autowired
 	private CatalogService cService;
+	@Autowired
+	private LocalInventoryListService iService;
 	
 	
 	@RequestMapping(value= {"/catalog"}, method = RequestMethod.GET)
@@ -43,10 +47,10 @@ public class CatalogController {
 		
 		Product product = new Product();
 		ArrayList<Product> catalog = cService.findAllProducts();
+		ArrayList<LocalinventoryList> inventoryList = (ArrayList<LocalinventoryList>)iService.findAll();
 		ModelAndView mav = new ModelAndView("catalogpage", "product", product);
 		mav.addObject("catalog", catalog);
-		
-		
+		mav.addObject("inventoryList", inventoryList);
 		
 		return mav;
 	}

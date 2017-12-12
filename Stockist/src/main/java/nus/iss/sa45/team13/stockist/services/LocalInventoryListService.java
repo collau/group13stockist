@@ -10,5 +10,6 @@ public interface LocalInventoryListService {
 	LocalinventoryList findOne(int storeqty);
 	//ArrayList<Product> updateQuantity(int storeqty);
 	
+	ArrayList<LocalinventoryList> findAll();
 
 }
