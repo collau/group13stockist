@@ -30,7 +30,7 @@ public class ProductValidator implements Validator {
 	}
 
 	@Override
-	public void validate(Object arg0, Errors arg1) throws NumberFormatException{
+	public void validate(Object arg0, Errors arg1) throws NumberFormatException {
 		Product p = (Product) arg0;
 		ValidationUtils.rejectIfEmpty(arg1, "partName", "error.product.partName.empty");
 		ValidationUtils.rejectIfEmpty(arg1, "unitPrice", "error.product.unitPrice.empty");
@@ -43,45 +43,46 @@ public class ProductValidator implements Validator {
 		ValidationUtils.rejectIfEmpty(arg1, "shelfLocation", "error.product.shelfLocation.empty");
 		ValidationUtils.rejectIfEmpty(arg1, "category", "error.product.category.empty");
 
-//		// input string contains characters only for name
-//		if (!(p.getPartName() != null && p.getPartName().isEmpty())) {
-//			pattern = Pattern.compile(STRING_PATTERN);
-//			matcher = pattern.matcher(p.getPartName());
-//			if (!matcher.matches()) {
-//
-//				arg1.rejectValue("partName","partName.containNonChar", "Enter a valid name.");
-//			}
-//		}
+		// input string contains characters only for name
+		if (!(p.getPartName() != null && p.getPartName().isEmpty())) {
+			pattern = Pattern.compile(STRING_PATTERN);
+			matcher = pattern.matcher(p.getPartName());
+			if (!matcher.matches()) {
 
-	// // input string contains numeric values only for contact
-	// if (s.getContact() != null && s.getContact().toString().length() != 8) {
-	// pattern = Pattern.compile(MOBILE_PATTERN);
-	// matcher = pattern.matcher(s.getContact().toString());
-	// if (!matcher.matches()) {
-	// arg1.rejectValue("contact", "contact.incorrect",
-	// "ContactNumber should contain 8 numeric digits");
-	// }
+				arg1.rejectValue("partName", "partName.containNonChar", "Enter a valid name.");
+			}
+		}
 
-	// // input string contains characters only for country
-	// if (!(s.getCountry() != null && s.getCountry().isEmpty())) {
-	// pattern = Pattern.compile(COUNTRY_PATTERN);
-	// matcher = pattern.matcher(s.getCountry());
-	// if (!matcher.matches()) {
-	// arg1.rejectValue("country", "country.containNonChar", "Enter a valid country
-	// name.");
-	// }
-	// }
+		// input string contains numeric values only for unitPrice
+		// if (Double.toString(p.getUnitPrice()) != null &&
+		// Double.toString(p.getUnitPrice()) != "(^[+]?[0-9]{1,3}(\.[0-9]{1,2})?$)") {
+		// pattern = Pattern.compile(PRICE_PATTERN);
+		// matcher = pattern.matcher(Double.toString(p.getUnitPrice()));
+		// if (!matcher.matches()) {
+		// arg1.rejectValue("unitPrice", "unitPrice.incorrect",
+		// "UnitPrice should contain decimal.");
+		// }
 
-	 System.out.println(p.toString());
-	// }
-//	 }
-//	
-//	public static boolean isIntegerParseInt(String str) {
-//		try {
-//			Integer.parseInt(str);
-//			return true;
-//		} catch (NumberFormatException nfe) {
-//		}
-//		return false;
+		// // input string contains characters only for country
+		// if (!(s.getCountry() != null && s.getCountry().isEmpty())) {
+		// pattern = Pattern.compile(COUNTRY_PATTERN);
+		// matcher = pattern.matcher(s.getCountry());
+		// if (!matcher.matches()) {
+		// arg1.rejectValue("country", "country.containNonChar", "Enter a valid country
+		// name.");
+		// }
+		// }
+
+		System.out.println(p.toString());
+		// }
+		// }
+		//
+		// public static boolean isIntegerParseInt(String str) {
+		// try {
+		// Integer.parseInt(str);
+		// return true;
+		// } catch (NumberFormatException nfe) {
+		// }
+		// return false;
 	}
 }

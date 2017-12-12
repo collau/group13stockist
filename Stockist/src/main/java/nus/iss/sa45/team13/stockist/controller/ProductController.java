@@ -45,12 +45,6 @@ public class ProductController {
 		binder.setValidator(pValidator);
 	}
 
-	// @InitBinder
-	// protected void initBinder(final HttpServletRequest request, final
-	// ServletRequestDataBinder binder) {
-	// binder.addValidators(pValidator);
-	// }
-
 	Map<Integer, Integer> saved = new HashMap<Integer, Integer>();
 
 	@RequestMapping(value = "/viewproduct/{partNumber}", method = RequestMethod.GET)
@@ -130,36 +124,6 @@ public class ProductController {
 		redirattr.addFlashAttribute("message", msg);
 		return mav;
 	}
-
-	// @RequestMapping(value="/edit/{partnumber", method=RequestMethod.POST)
-	// public ModelAndView confirmEditProductPage(@ModelAttribute @Valid Product
-	// product,
-	// BindingResult result, final RedirectAttributes redirattr, @PathVariable
-	// String partnumber)
-	// {
-	// if(result.hasErrors())
-	// return new ModelAndView("product-edit");
-	//
-	// ModelAndView mav = new ModelAndView ("redirect:/admin/suppliers/list");
-	// sservice.updateSupplier(supplier);
-	// String msg = "Supplier successfully updated.";
-	// redirattr.addFlashAttribute("message", msg);
-	// return mav;
-
-	// @RequestMapping(value = "/person-form")
-	// public ModelAndView personPage() {
-	// return new ModelAndView("person-page", "person-entity", new Person());
-	// }
-
-	// @RequestMapping(value = "/viewproduct/record")
-	// public ModelAndView processProduct(@ModelAttribute Product product) {
-	// ModelAndView mav = new ModelAndView();
-	// mav.setViewName("redirect:/catalog");
-	//
-	// mav.addObject("productObj", product);
-	//
-	// return mav;
-	// }
 
 	@RequestMapping(value = "/viewproduct/{partNumber}", method = RequestMethod.POST)
 	public ModelAndView AddToCart(@ModelAttribute Product savedQty, BindingResult result,
