@@ -17,8 +17,10 @@ public class SuppliersValidator implements Validator  {
 	private Pattern pattern;
 	private Matcher matcher;
 
-	String STRING_PATTERN = "[a-zA-Z]+";
+	String STRING_PATTERN = "[a-zA-Z\\s0-9]+";
 	String MOBILE_PATTERN = "[0-9]{10}";
+	String COUNTRY_PATTERN = "[a-zA-Z]+";
+	
 
 	@Override
 	public boolean supports(Class<?> arg0) {
@@ -45,7 +47,7 @@ public class SuppliersValidator implements Validator  {
 		}
 		
 		// input string contains numeric values only for contact
-		  if (s.getContact() != null && s.getContact().SIZE != 8) {  
+		  if (s.getContact() != null && s.getContact().toString().length() != 8) {  
 		   pattern = Pattern.compile(MOBILE_PATTERN);  
 		   matcher = pattern.matcher(s.getContact().toString());  
 		   if (!matcher.matches()) {  
@@ -55,8 +57,8 @@ public class SuppliersValidator implements Validator  {
 
 		// input string contains characters only for country
 		if (!(s.getCountry() != null && s.getCountry().isEmpty())) {
-			pattern = Pattern.compile(STRING_PATTERN);
-			matcher = pattern.matcher(s.getName());
+			pattern = Pattern.compile(COUNTRY_PATTERN);
+			matcher = pattern.matcher(s.getCountry());
 			if (!matcher.matches()) {
 				arg1.rejectValue("country", "country.containNonChar", "Enter a valid country name.");
 			}
