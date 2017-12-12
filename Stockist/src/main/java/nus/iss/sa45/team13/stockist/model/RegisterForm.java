@@ -1,12 +1,19 @@
 package nus.iss.sa45.team13.stockist.model;
 
 public class RegisterForm {
+	private Integer userId;
 	private String name;
 	private String userName;
 	private String password;
 	private String confirmPassword;
 	private boolean adminStatus;
 	
+	public Integer getUserId() {
+		return userId;
+	}
+	public void setUserId(Integer userId) {
+		this.userId = userId;
+	}
 	public String getName() {
 		return name;
 	}

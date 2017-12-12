@@ -22,14 +22,15 @@ public class UserServiceImpl implements UserService {
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
 
 	@Override
-	public void saveUser(User user, Role role) {
+	public String saveUser(User user, Role role) {
 		Role savedRole;
 		
 		user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
 		savedRole = roleRepository.save(role);
-		System.out.println("USERID IS " + savedRole.getStaffId());
 		user.setStaffId(savedRole.getStaffId());
 		userRepository.save(user);
+		
+		return Integer.toString(savedRole.getStaffId());
 	}
 
 }

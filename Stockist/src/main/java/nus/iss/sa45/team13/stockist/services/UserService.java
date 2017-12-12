@@ -4,5 +4,5 @@ import nus.iss.sa45.team13.stockist.model.Role;
 import nus.iss.sa45.team13.stockist.model.User;
 
 public interface UserService {
-	public void saveUser(User user, Role role);
+	public String saveUser(User user, Role role);
 }
