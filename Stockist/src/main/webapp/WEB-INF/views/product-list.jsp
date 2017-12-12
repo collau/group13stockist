@@ -2,12 +2,17 @@
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<style>
+th {text-align:center; padding:5;}
+tr {line-height:1.5;}
+</style>
 <title>Products Management Page</title>
 </head>
 <body>
@@ -23,29 +28,30 @@
 
 	</div>
 	</nav>
-	<a href="${pageContext.request.contextPath}/admin/product/create">Add
+	<p style="margin-left:10">
+	<a href="${pageContext.request.contextPath}/admin/viewproduct/create" class="btn btn-default btn-lg">Add
 	Product</a>
-	<br>
-	<br>
-	<br>
+	
 	<br>
 	<br>
 	
 	<c:if test="${fn:length(productList) gt 0}">		<!-- if this is empty, then dont print table -->
-	<table style="cellspacing: 2; cellpadding: 2; border: 2;text-align: center;">
-		<thead style="cellspacing: 2; cellpadding: 5; border: 2;text-align: center;">
+	<table align="center" style="cellspacing: 2; cellpadding: 2; border: 2;text-align: center;">
+		<thead style="line-height:2; cellspacing: 2; cellpadding: 5; border: 2;text-align: center;">
 			<tr class="listHeading">
-				<th>Part Number</th>
-				<th>Part Name</th>
-				<th>Unit Price</th>
-				<th>Description</th>
+				<th>Part No</th>
+				<th>Name</th>
+				<th>Price</th>
+				<th>Desc</th>
 				<th>Color</th>
 				<th>Dimension</th> 		<!-- comes from i18n message properties, professionally done <spring:message code="caption.delete" />-->
-				<th>SupplierID</th>		<!--  hard-coded currently - to amend with spring message, ^edit as well -->
-				<th>ReOrder Point</th>
-				<th>Min Order</th>
-				<th>Shelf Location</th>
-				<th>Category</th>
+				<th style="text-align:center; padding:5">SupplierID</th>		<!--  hard-coded currently - to amend with spring message, ^edit as well -->
+				<th style="text-align:center; padding:5">ReOrder Pt</th>
+				<th style="text-align:center; padding:5">Min Order</th>
+				<th style="text-align:center; padding:5">Shelf</th>
+				<th style="text-align:center; padding:5">Category</th>
+				<th style="text-align:center; padding:5">Edit</th>
+				<th style="text-align:center; padding:5">Delete</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -53,7 +59,7 @@
 				<tr class="listRecord">
 				<td>${product.partNumber}</td>		<!-- from database -->
 					<td>${product.partName}</td>
-					<td>${product.unitPrice}</td>
+					<td><fmt:formatNumber value="${product.unitPrice}" currencySymbol="$" type="currency"></fmt:formatNumber></td>
 					<td>${product.description}</td>
 					<td>${product.color}</td>		<!-- from database -->
 					<td>${product.dimension}</td>

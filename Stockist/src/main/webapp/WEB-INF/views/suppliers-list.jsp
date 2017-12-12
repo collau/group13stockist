@@ -8,6 +8,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<style>
+th {text-align:center; padding:10;}
+tr {line-height:1.5;}
+</style>
 <title>Suppliers Management Page</title>
 </head>
 <body>
@@ -42,13 +46,13 @@
 	<table align="center" style="spacing:5; padding:5; border:1;text-align:center;">
 		<thead style="line-height:2; line-width:2; cellspacing:5; cellpadding:5; border:1;text-align:center;">
 			<tr class="listHeading">
-				<th style="text-align:center; padding:10">Supplier ID</th>
-				<th style="text-align:center; padding:10">Supplier Name</th>
-				<th style="text-align:center; padding:10">Supplier Address</th>
-				<th style="text-align:center; padding:10">Country of Supplier</th>
-				<th style="text-align:center; padding:10">Contact No.</th>
-				<th style="text-align:center; padding:10">Edit</th> 		<!-- comes from i18n message properties, professionally done <spring:message code="caption.delete" />-->
-				<th style="text-align:center; padding:10">Delete</th>		<!--  hard-coded currently - to amend with spring message, ^edit as well -->
+				<th>Supplier ID</th>
+				<th>Supplier Name</th>
+				<th>Supplier Address</th>
+				<th>Country</th>
+				<th>Contact No.</th>
+				<th>Edit</th> 		<!-- comes from i18n message properties, professionally done <spring:message code="caption.delete" />-->
+				<th>Delete</th>		<!--  hard-coded currently - to amend with spring message, ^edit as well -->
 			</tr>
 		</thead>
 		<tbody>

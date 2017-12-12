@@ -36,6 +36,8 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="/Team13Bookshop/home">
                     <img src="${carmechanicw}" height="30" style="padding-bottom: 5px;"></img>
@@ -54,7 +56,13 @@
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
                 	<% if (request.isUserInRole("ROLE_ADMIN")) { %>
-                	<li>
+                		<li>
+						<a href="<c:url value="/admin/viewproduct/list" />">View Products</a>
+              		</li>
+                		<li>
+						<a href="<c:url value="/admin/suppliers/list" />">View Suppliers</a>
+              		</li>
+                		<li>
 						<a href="<c:url value="/admin/users/view" />">View Users</a>
               		</li>
    					<li>
