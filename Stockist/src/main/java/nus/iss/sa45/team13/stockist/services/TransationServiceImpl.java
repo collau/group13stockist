@@ -34,6 +34,8 @@ public class TransationServiceImpl implements TransationService {
 	public Transation newTranRrecordPage(Transation t) {
 		return transationRepository.save(t);
 	}
+	
+	
 
 	
 
