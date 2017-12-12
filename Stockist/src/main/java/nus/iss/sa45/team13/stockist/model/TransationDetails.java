@@ -13,15 +13,15 @@ public class TransationDetails {
 	@Column(name="transid")
 	private int transid;
 	@Column(name="partnumber")
-	private String partnumber;
+	private int partnumber;
 	@Column(name="qty")
-	private String qty;
+	private int qty;
 	
 	public TransationDetails() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public TransationDetails(int transid, String partnumber, String qty) {
+	public TransationDetails(int transid, int partnumber, int qty) {
 		super();
 		this.transid = transid;
 		this.partnumber = partnumber;
@@ -33,16 +33,16 @@ public class TransationDetails {
 	public void setTransid(int transid) {
 		this.transid = transid;
 	}
-	public String getPartnumber() {
+	public int getPartnumber() {
 		return partnumber;
 	}
-	public void setPartnumber(String partnumber) {
+	public void setPartnumber(int partnumber) {
 		this.partnumber = partnumber;
 	}
-	public String getQty() {
+	public int getQty() {
 		return qty;
 	}
-	public void setQty(String qty) {
+	public void setQty(int qty) {
 		this.qty = qty;
 	}
 	@Override
