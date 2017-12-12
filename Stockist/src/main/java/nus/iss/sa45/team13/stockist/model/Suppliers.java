@@ -22,14 +22,14 @@ private String address;
 private String country;
 
 @Column(name="contact")
-private int contact;
+private Integer contact;
 
 public Suppliers() {
 	super();
 	// TODO Auto-generated constructor stub
 }
 
-public Suppliers(int supplierid, String name, String address, String country, int contact) {
+public Suppliers(int supplierid, String name, String address, String country, Integer contact) {
 	super();
 	this.supplierid = supplierid;
 	this.name = name;
@@ -70,7 +70,7 @@ public void setCountry(String country) {
 	this.country = country;
 }
 
-public int getContact() {
+public Integer getContact() {
 	return contact;
 }
 
