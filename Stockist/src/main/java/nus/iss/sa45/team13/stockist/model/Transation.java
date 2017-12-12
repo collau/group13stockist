@@ -1,6 +1,6 @@
 package nus.iss.sa45.team13.stockist.model;
 
-import java.sql.Date;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -49,6 +49,7 @@ public class Transation {
 	public void setStaffid(int staffid) {
 		this.staffid = staffid;
 	}
+	
 	public Date getDatetime() {
 		return datetime;
 	}
@@ -66,26 +67,6 @@ public class Transation {
 	}
 	public void setRemarks(String remarks) {
 		this.remarks = remarks;
-	}
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + transid;
-		return result;
-	}
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Transation other = (Transation) obj;
-		if (transid != other.transid)
-			return false;
-		return true;
 	}
 	@Override
 	public String toString() {

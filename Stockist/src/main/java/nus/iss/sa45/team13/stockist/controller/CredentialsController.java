@@ -139,4 +139,12 @@ public class CredentialsController {
 		roleRepo.saveAndFlush(r);
 		return mav;
 	}
+	
+	@RequestMapping(value = "/admin/users/delete/{userId}", method = RequestMethod.GET)
+	public ModelAndView DeleteSelectedUser(@PathVariable Integer userId) {
+		ModelAndView mav = new ModelAndView("redirect:/admin/users/view");
+		Role role = roleRepo.findRoleByUserId(userId);
+		roleRepo.delete(role);		
+		return mav;
+	}
 }
