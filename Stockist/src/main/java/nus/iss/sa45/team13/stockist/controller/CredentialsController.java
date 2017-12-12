@@ -17,6 +17,7 @@ import nus.iss.sa45.team13.stockist.model.Role;
 import nus.iss.sa45.team13.stockist.model.User;
 import nus.iss.sa45.team13.stockist.repository.RoleRepository;
 import nus.iss.sa45.team13.stockist.repository.UserRepository;
+import nus.iss.sa45.team13.stockist.services.UserService;
 
 @Controller
 public class CredentialsController {
@@ -26,6 +27,10 @@ public class CredentialsController {
 
 	@Autowired
 	RoleRepository roleRepo;
+	
+	@Autowired
+	UserService userService;
+	
 
 	@RequestMapping(value = { "/login" }, method = RequestMethod.GET)
 	public ModelAndView LoginPage(Authentication authentication) {
@@ -53,15 +58,19 @@ public class CredentialsController {
 
 			if (role.equals("[Admin]")) {
 				System.out.println("REDIRECTING TO ADMIN PAGE...");
+				// TODO : If logged in goto to homepage based on role
+				mav.setViewName("redirect:/about");
 			} else if (role.equals("[Staff]")) {
 				System.out.println("REDIRECTING TO STAFF PAGE...");
+				// TODO : If logged in goto to homepage based on role
+				mav.setViewName("redirect:/about");
+			} else {
+				// No idea what role is this, goto about page
+				mav.setViewName("redirect:/about");
 			}
-
-			// TODO : If logged in goto to homepage based on role
-			mav.setViewName("redirect:/about");
 		} else {
 			// If not logged in, redirect to about page
-			mav.setViewName("redirect:/about");
+			mav.setViewName("redirect:/login");
 		}
 
 		return mav;
@@ -90,9 +99,7 @@ public class CredentialsController {
 		role.setRole(userDetails.isAdminStatus() ? "Admin" : "Staff");
 
 		// Save data to table
-		role = roleRepo.save(role);
-		user.setStaffId(role.getStaffId());
-		user = userRepo.save(user);
+		userService.saveUser(user, role);
 
 		mav.addObject("newUser", userDetails);
 		mav.setViewName("confirmRegistration");
