@@ -20,7 +20,7 @@
 	<script src="${semanticminjs}"></script>
 
 	<dec:head />
-	<title><dec:title default="Team13 Stockist"/></title>
+	<title><dec:title default="Stockist"/></title>
 </head>
 <body>
 
@@ -47,13 +47,16 @@
 						</a>
 					</c:when>
 					<c:otherwise>
-						<a class="navbar-brand" href="${homepage}">Team 13 Stockist</a>
+						<a class="navbar-brand" href="${homepage}">Stockist</a>
 					</c:otherwise>							
 				</c:choose>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
-                	<% if (request.isUserInRole("Admin")) { %>
+                	<% if (request.isUserInRole("ROLE_ADMIN")) { %>
+                	<li>
+						<a href="<c:url value="/admin/users/view" />">View Users</a>
+              		</li>
    					<li>
 						<a href="<c:url value="/admin/register" />">Create New User</a>
               		</li>
@@ -88,7 +91,7 @@
 	<div style="clear:both;">
 		<div id="col-12 footer" align="center">
 		  <hr>
-			<small>Made by SA45 Team 13</small>
+			<small>For CA Assignment</small>
 		</div>
 	</div>
 	

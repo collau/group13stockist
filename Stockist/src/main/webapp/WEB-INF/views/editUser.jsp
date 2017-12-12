@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
@@ -8,12 +8,26 @@
 <title>Edit Employee</title>
 </head>
 <body>
-	<c:url value="/admin/users/edit" var="editUser"/>
-	<form:form action="${editUser}" method="POST" modelAttribute="selectedUser">
-		Staff ID <form:input path="userId" readonly="true" /> <br/>
-		Name <form:input path="name" /><br/>
-		Is Administrator <form:checkbox path="adminStatus" /><br/>
-		<input type="submit" value="Save Changes" class="blcass"/>
-	</form:form>	
+	<c:url value="/admin/users/edit" var="editUser" />
+	<form:form action="${editUser}" method="POST"
+		modelAttribute="selectedUser">
+		<div class="col-sm-12 col-md-1 col-lg-3">
+			<div class="form-group">
+				<label>Staff ID</label>
+				<form:input path="userId" class="form-control" readonly="true" />
+			</div>
+			<div class="form-group">
+				<label>Name</label>
+				<form:input path="name" class="form-control" />
+			</div>
+			<div class="form-group">
+				<label>Is Administrator</label>
+				<form:checkbox path="adminStatus" />
+			</div>
+			<div class="form-group">
+				<input type="submit" value="Save Changes" class="btn btn-lg" />
+			</div>
+		</div>
+	</form:form>
 </body>
 </html>

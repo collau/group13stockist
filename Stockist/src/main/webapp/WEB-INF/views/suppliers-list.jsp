@@ -31,25 +31,24 @@
 
 	</div>
 	</nav>
-	<a href="${pageContext.request.contextPath}/admin/suppliers/create">Add
+	<p style="margin-left:10">
+	<a href="${pageContext.request.contextPath}/admin/suppliers/create" class="btn btn-default btn-lg">Add
 	Supplier</a>
-	<br>
-	<br>
-	<br>
+
 	<br>
 	<br>
 	
 	<c:if test="${fn:length(supplierList) gt 0}">		<!-- if this is empty, then dont print table -->
-	<table style="cellspacing: 2; cellpadding: 2; border: 2;text-align: center;">
-		<thead style="cellspacing: 2; cellpadding: 5; border: 2;text-align: center;">
+	<table align="center" style="spacing:5; padding:5; border:1;text-align:center;">
+		<thead style="line-height:2; line-width:2; cellspacing:5; cellpadding:5; border:1;text-align:center;">
 			<tr class="listHeading">
-				<th>Supplier ID</th>
-				<th>Supplier Name</th>
-				<th>Supplier Address</th>
-				<th>Country of Supplier</th>
-				<th>Contact No.</th>
-				<th>Edit</th> 		<!-- comes from i18n message properties, professionally done <spring:message code="caption.delete" />-->
-				<th>Delete</th>		<!--  hard-coded currently - to amend with spring message, ^edit as well -->
+				<th style="text-align:center; padding:10">Supplier ID</th>
+				<th style="text-align:center; padding:10">Supplier Name</th>
+				<th style="text-align:center; padding:10">Supplier Address</th>
+				<th style="text-align:center; padding:10">Country of Supplier</th>
+				<th style="text-align:center; padding:10">Contact No.</th>
+				<th style="text-align:center; padding:10">Edit</th> 		<!-- comes from i18n message properties, professionally done <spring:message code="caption.delete" />-->
+				<th style="text-align:center; padding:10">Delete</th>		<!--  hard-coded currently - to amend with spring message, ^edit as well -->
 			</tr>
 		</thead>
 		<tbody>

@@ -56,7 +56,9 @@ public class ProductController {
 	public ModelAndView ProductDetails(@PathVariable int partNumber) {
 
 		Product product = pService.findOne(partNumber);
+		Product emptyproduct = new Product();
 		ModelAndView mav = new ModelAndView("viewproduct", "currentproduct", product);
+		mav.addObject("emptyproduct", emptyproduct);
 		return mav;
 
 	}
