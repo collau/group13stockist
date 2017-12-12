@@ -27,7 +27,7 @@ public class SuppliersValidator implements Validator  {
 	}
 
 	@Override
-	public void validate(Object arg0, Errors arg1) {
+	public void validate(Object arg0, Errors arg1) throws NumberFormatException{
 		Suppliers s = (Suppliers) arg0;
 		ValidationUtils.rejectIfEmpty(arg1, "supplierid", "error.suppliers.id.empty");
 		ValidationUtils.rejectIfEmpty(arg1, "name", "error.suppliers.name.empty");
@@ -44,11 +44,26 @@ public class SuppliersValidator implements Validator  {
 			}
 		}
 		
-		// input string can not exceed that a limit  
-		   if (s.getCountry()==null &&isIntegerParseInt(s.getContact().toString())&& s.getContact().SIZE != 8) {  
-		    arg1.rejectValue("contact",  "contact.notmet",
-		      "ContactNumber should contain 8 digits");  
+		// input string contains numeric values only  
+		  if (s.getContact() != null && s.getContact().SIZE != 8) {  
+		   pattern = Pattern.compile(MOBILE_PATTERN);  
+		   matcher = pattern.matcher(s.getContact().toString());  
+		   if (!matcher.matches()) {  
+		    arg1.rejectValue("contact", "contact.incorrect",  
+		      "ContactNumber should contain 8 numeric digits");  
 		   }  
+		
+//		// input string can not exceed that a limit  
+//		   if (s.getContact().SIZE != 8) {  
+//		    arg1.rejectValue("contact",  "contact.notmet",
+//		      "ContactNumber should contain 8 numeric digits");  
+//		   }  
+		   
+//			// input string can not exceed that a limit  
+//		   if (s.getContact().SIZE != 8) {  
+//		    arg1.rejectValue("contact",  "contact.notmet",
+//		      "ContactNumber should contain 8 numeric digits");  
+//		   }  
 		   
 
 		if (!(s.getCountry() != null && s.getCountry().isEmpty())) {
@@ -58,12 +73,9 @@ public class SuppliersValidator implements Validator  {
 				arg1.rejectValue("country", "country.containNonChar", "Enter a valid country name.");
 			}
 		}
-		
-		
-		
-		
 
 		System.out.println(s.toString());
+		  }
 	}
 	
     public static boolean isIntegerParseInt(String str) {
