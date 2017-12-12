@@ -68,7 +68,7 @@ public class ReportController {
 	private ApplicationContext appContext;
 	
 	
-	@RequestMapping(value = "/generateReport", method = RequestMethod.GET)
+	@RequestMapping(value = "/admin/generateReport", method = RequestMethod.GET)
 	@ResponseBody
 	public void generateReport(HttpServletResponse response) throws JRException, SQLException, IOException, ClassNotFoundException
 	{

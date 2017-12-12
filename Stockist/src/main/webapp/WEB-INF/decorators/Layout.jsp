@@ -26,8 +26,7 @@
 
 	<!-- Top Bar -->
 	<c:url value="/image/carmechanic(white).png" var="carmechanicw"/>
-	<c:url value="/home" var="homepage"/>
-	<c:url value="/admin/register" var="registerPage"/>
+	<c:url value="/home" var="homepage"/>	
     <nav class="navbar navbar-inverse navbar-static-top">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -56,7 +55,10 @@
                 <ul class="nav navbar-nav navbar-right">
                 	<% if (request.isUserInRole("Admin")) { %>
    					<li>
-						<a href="<c:url value="${registerPage}" />">Create New User</a>
+						<a href="<c:url value="/admin/register" />">Create New User</a>
+              		</li>
+              		<li>
+						<a href="<c:url value="/admin/generateReport" />">Reorder Report</a>
               		</li>
 					<% } %>  
                     <li>                    	
