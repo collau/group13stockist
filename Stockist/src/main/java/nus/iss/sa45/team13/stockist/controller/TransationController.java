@@ -35,7 +35,6 @@ import nus.iss.sa45.team13.stockist.services.TransationService;
 import nus.iss.sa45.team13.stockist.validators.TransationValidator;
 
 
-@RequestMapping(value = {"/admin/","/staff/"})
 @Controller
 public class TransationController {
 

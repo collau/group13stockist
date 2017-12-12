@@ -26,7 +26,6 @@ import nus.iss.sa45.team13.stockist.model.Product;
 import nus.iss.sa45.team13.stockist.services.CatalogService;
 import nus.iss.sa45.team13.stockist.services.LocalInventoryListService;
 
-@RequestMapping(value = {"/admin/","/staff/"})
 @Controller
 public class CatalogController {
 	
