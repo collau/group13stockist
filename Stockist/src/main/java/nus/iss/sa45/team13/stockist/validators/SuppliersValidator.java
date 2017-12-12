@@ -35,7 +35,7 @@ public class SuppliersValidator implements Validator  {
 		ValidationUtils.rejectIfEmpty(arg1, "country", "error.suppliers.country.empty");
 		ValidationUtils.rejectIfEmpty(arg1, "contact", "error.suppliers.contact.empty");
 
-		// input string contains characters only
+		// input string contains characters only for name
 		if (!(s.getName() != null && s.getName().isEmpty())) {
 			pattern = Pattern.compile(STRING_PATTERN);
 			matcher = pattern.matcher(s.getName());
@@ -44,7 +44,7 @@ public class SuppliersValidator implements Validator  {
 			}
 		}
 		
-		// input string contains numeric values only  
+		// input string contains numeric values only for contact
 		  if (s.getContact() != null && s.getContact().SIZE != 8) {  
 		   pattern = Pattern.compile(MOBILE_PATTERN);  
 		   matcher = pattern.matcher(s.getContact().toString());  
@@ -52,20 +52,8 @@ public class SuppliersValidator implements Validator  {
 		    arg1.rejectValue("contact", "contact.incorrect",  
 		      "ContactNumber should contain 8 numeric digits");  
 		   }  
-		
-//		// input string can not exceed that a limit  
-//		   if (s.getContact().SIZE != 8) {  
-//		    arg1.rejectValue("contact",  "contact.notmet",
-//		      "ContactNumber should contain 8 numeric digits");  
-//		   }  
-		   
-//			// input string can not exceed that a limit  
-//		   if (s.getContact().SIZE != 8) {  
-//		    arg1.rejectValue("contact",  "contact.notmet",
-//		      "ContactNumber should contain 8 numeric digits");  
-//		   }  
-		   
 
+		// input string contains characters only for country
 		if (!(s.getCountry() != null && s.getCountry().isEmpty())) {
 			pattern = Pattern.compile(STRING_PATTERN);
 			matcher = pattern.matcher(s.getName());
