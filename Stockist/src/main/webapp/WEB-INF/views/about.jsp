@@ -7,48 +7,34 @@
 	<title>About</title>
 </head>
 <body>
-	
-	<% if (request.isUserInRole("Admin")) { %>
-	   <h1>Only Admin can see this line!</h1>
-	<% } %>
-	
-	<% if (request.isUserInRole("Staff")) { %>
-	   <h1>Only Mechanic can see this line!</h1>
-	<% } %>
-	
-	
-	
-	<section style="padding-top:30px;">
-        <article>
-            <div class="ui grid" style="margin: 0 20px 0 20px">
-                <div class="column">
-                    <div class="ui raised segment text-left">
-                        <a class="ui red ribbon label" style="font-size:x-large;" >STOCKIST</a>
-                        <div style="padding-top:0px;"></div>
-                        <div class="ui two column grid" style="padding-top:10px;">
-                            <div class="column">
-                                <div class="ui raised segment">
-                                    <a class="ui blue ribbon label" style="font-size:large;">A Project By SA45 Team 13</a>
-                                    <br />
-                                    <br />
-                                    <p>Xavier</p>
-                                    <p>Joel</p>
-                                    <p>Jun Yi</p>
-                                    <p>Leon</p>
-                                    <p>Thet Thet</p>
-                                    <p>Tongyu</p>
-                                    <p>Zeng Rui</p>
-                                    <p>Emil</p>
-                                    <p>Huge Gene</p>
-                                </div>
-                            </div>
-                            <div class="column">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </article>
-    </section>
+	<div style="margin: 0 auto; width: 500px;">
+		<div class="ui grid" style="margin: 0 20px 0 20px">
+			<div class="column" style="width:420px;">
+				<div class="ui raised segment text-left" >
+					<a class="ui red ribbon label" style="font-size: x-large;">STOCKIST</a>
+					<div style="padding-top: 0px;"></div>
+					<div class="ui two column grid" style="padding-top: 10px;">
+						<div class="column" style="width:400px;">
+							<div class="ui raised segment">
+								<a class="ui blue ribbon label" style="font-size: large;">
+									A Project By SA45 Team 13
+								</a> 
+								<br /> <br />
+								<div class="text-center">Lim Liang Wei</div>
+								<div class="text-center">Qin Wenhao Joel</div>
+								<div class="text-center">Thet Thet Kyaw Sein Win</div>
+								<div class="text-center">Xavier Varricatt</div>
+								<div class="text-center">Eugene Chian Yan Tao</div>
+								<div class="text-center">Zeng Rui</div>
+								<div class="text-center">Yee Jun Yi</div>
+								<div class="text-center">Tan Jun Han Emil</div>
+								<div class="text-center">Liu Tongyu</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
 </html>
