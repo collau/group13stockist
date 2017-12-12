@@ -91,18 +91,18 @@ public class ProductController {
 		
 	}
 	
-	@RequestMapping(value="/edit/{partnumber", method=RequestMethod.POST)
-	public ModelAndView confirmEditProductPage(@ModelAttribute @Valid Product product, 
-			BindingResult result, final RedirectAttributes redirattr, @PathVariable String partnumber)
-	{
-		if(result.hasErrors())
-			return new ModelAndView("product-edit");
-		
-		ModelAndView mav = new ModelAndView ("redirect:/admin/suppliers/list");
-		sservice.updateSupplier(supplier);
-		String msg = "Supplier successfully updated.";
-		redirattr.addFlashAttribute("message", msg);
-		return mav;
+//	@RequestMapping(value="/edit/{partnumber", method=RequestMethod.POST)
+//	public ModelAndView confirmEditProductPage(@ModelAttribute @Valid Product product, 
+//			BindingResult result, final RedirectAttributes redirattr, @PathVariable String partnumber)
+//	{
+//		if(result.hasErrors())
+//			return new ModelAndView("product-edit");
+//		
+//		ModelAndView mav = new ModelAndView ("redirect:/admin/suppliers/list");
+//		sservice.updateSupplier(supplier);
+//		String msg = "Supplier successfully updated.";
+//		redirattr.addFlashAttribute("message", msg);
+//		return mav;
 
 	// @RequestMapping(value = "/person-form")
 	// public ModelAndView personPage() {
