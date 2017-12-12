@@ -3,8 +3,9 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-
+<%@ page session="true" %>
 <%@ page import="nus.iss.sa45.team13.stockist.model.Product" %>
+<%@ page import="java.util.Map" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -40,7 +41,8 @@
 					<li><a href="#">Car Accessories</a></li>
 				</ul></li>
 		</ul>
-		<a href="${pageContext.request.contextPath}/translist">CART</a>>
+		<a href="${pageContext.request.contextPath}/translist">CART<span class="badge">${sessionData}</span></a>
+		
 	</div>
 	</nav>
 	<br>

@@ -34,16 +34,8 @@ public class CatalogController {
 	@Autowired
 	private LocalInventoryListService iService;
 	
-	
 	@RequestMapping(value= {"/catalog"}, method = RequestMethod.GET)
 	public ModelAndView CatalogPage(HttpSession httpSession){
-		
-		if(httpSession.getAttribute("saved") != null) {
-			System.out.println("CatalogSesson found" + httpSession.getAttribute("saved").toString());
-		}
-		else {
-			System.out.println("empty");
-		}
 		
 		Product product = new Product();
 		ArrayList<Product> catalog = cService.findAllProducts();
@@ -51,7 +43,15 @@ public class CatalogController {
 		ModelAndView mav = new ModelAndView("catalogpage", "product", product);
 		mav.addObject("catalog", catalog);
 		mav.addObject("inventoryList", inventoryList);
-		
+		if(httpSession.getAttribute("saved") != null) {
+			System.out.println("CatalogSesson found" + httpSession.getAttribute("saved").toString());
+			Integer count = ((Map)httpSession.getAttribute("saved")).size();
+			mav.addObject("sessionData", count);
+		}
+		else {
+			System.out.println("empty");
+			mav.addObject("sessionData", 0);
+		}
 		return mav;
 	}
 	
