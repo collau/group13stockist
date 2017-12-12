@@ -25,7 +25,7 @@
 	<br />
 	<br />
 
-	<form:form method="POST" modelAttribute="viewproduct"
+	<form:form method="POST" modelAttribute="product"
 		action="${pageContext.request.contextPath}/admin/viewproduct/create">
 		<!-- modelAttr must match with model -->
 		<table>
