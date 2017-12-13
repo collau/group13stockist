@@ -18,6 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -43,7 +44,8 @@ import net.sf.jasperreports.export.SimplePdfExporterConfiguration;
 import net.sf.jasperreports.export.SimplePdfReportConfiguration;
 import net.sf.jasperreports.engine.export.JRPdfExporter;
 
-@RequestMapping(value = "/admin/")
+@Secured("ROLE_ADMIN")
+//@RequestMapping(value = "/admin/")
 @Controller
 public class ReportController {
 	

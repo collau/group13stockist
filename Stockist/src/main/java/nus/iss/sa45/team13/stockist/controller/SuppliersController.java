@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
@@ -20,7 +21,8 @@ import nus.iss.sa45.team13.stockist.model.Suppliers;
 import nus.iss.sa45.team13.stockist.services.SuppliersService;
 import nus.iss.sa45.team13.stockist.validators.SuppliersValidator;
 
-@RequestMapping(value = "/admin/suppliers")
+@Secured("ROLE_ADMIN")
+//@RequestMapping(value = "/suppliers")
 @Controller
 public class SuppliersController {
 
