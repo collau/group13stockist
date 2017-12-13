@@ -135,9 +135,12 @@ public class ProductController {
 	}
 
 	@RequestMapping(value = "/viewproduct/{partNumber}", method = RequestMethod.POST)
-	public ModelAndView AddToCart(@ModelAttribute Product savedQty, BindingResult result,
+	public ModelAndView AddToCart(@ModelAttribute("emptyproduct") @Valid Product savedQty, BindingResult result,
 			RedirectAttributes redirectAttributes, HttpSession httpSession, @PathVariable int partNumber) {
 
+		if (result.hasErrors())
+			return new ModelAndView("redirect:/catalog");
+		
 		int qtyLeft = ((LocalinventoryList)(iService.findOne(partNumber))).getStoreqty();
 		if(savedQty.getPartNumber()> qtyLeft) {
 			ModelAndView mav = new ModelAndView("redirect:/catalog");

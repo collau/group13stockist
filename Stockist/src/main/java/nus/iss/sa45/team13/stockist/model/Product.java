@@ -4,11 +4,15 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name="productdata")
 public class Product {
 	@Id
+	@Min(value=1)
+	@NotNull
 	@Column(name = "partnumber")
 	private int partNumber;
 	
