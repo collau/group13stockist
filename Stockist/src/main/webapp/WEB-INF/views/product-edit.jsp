@@ -8,31 +8,26 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Edit Suppliers</title>
+<title>Edit Products</title>
 </head>
 <body>
 	<nav class="navbar navbar-inverse navbar-static-top"
 		style="margin-top: -20px">
 	<div class="container-fluid">
 		<div class="navbar-header">
-			<a class="navbar-brand" href="#">Product</a>
+			<a class="navbar-brand" href="#">Edit Product</a>
 		</div>
 	</div>
 	</nav>
 
 	<br>
-	<br>
 
 	<form:form method="POST" modelAttribute="product"
 		action="${pageContext.request.contextPath}/admin/viewproduct/edit/${product.partNumber}.html">
 		<!-- modelAttr must match with model -->
+		<p style="margin-left:20"/>
 		<table>
 			<tbody>
-
-				<tr>
-					<td>Edit Product</td>
-					<br>
-				</tr>
 				<tr>
 					<td>Part Number</td>
 					<td><form:input path="partNumber" readonly="true" /></td>
@@ -55,12 +50,12 @@
 					<td><form:errors path="description" cssStyle="color: red;" /></td>
 				</tr>
 				<tr>
-					<td>color</td>
+					<td>Color</td>
 					<td><form:input path="color" /></td>
 					<td><form:errors path="color" cssStyle="color: red;" /></td>
 				</tr>
 				<tr>
-					<td>dimension</td>
+					<td>Dimension</td>
 					<td><form:input path="dimension" /></td>
 					<td><form:errors path="dimension" cssStyle="color: red;" /></td>
 				</tr>
@@ -90,13 +85,11 @@
 					<td><form:input path="category" /></td>
 					<td><form:errors path="category" cssStyle="color: red;" /></td>
 				</tr>
-				<tr>
-					<td><input type="submit" value="Save Details" /></td>
-					<td></td>
-					<td></td>
-				</tr>
 			</tbody>
 		</table>
+		<br/>
+		<br/>
+		<input type="submit" value="Save Details" />
 	</form:form>
 </body>
 </html>

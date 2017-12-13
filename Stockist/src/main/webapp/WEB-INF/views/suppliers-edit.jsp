@@ -24,7 +24,7 @@
 		
 		<form:form method="POST" modelAttribute="suppliers" 
 action="${pageContext.request.contextPath}/admin/suppliers/edit/${suppliers.supplierid}.html"> <!-- modelAttr must match with model -->
-	<p style="margin-left:10"/>
+	<p style="margin-left:20"/>
 	<table>
 		<tbody>
 				<tr>
