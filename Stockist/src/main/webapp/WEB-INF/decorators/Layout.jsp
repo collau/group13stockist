@@ -66,7 +66,7 @@
 						<a href="<c:url value="/admin/register" />">Create New User</a>
               		</li>
               		<li>
-						<a href="<c:url value="/admin/generateReport" />">Reorder Report</a>
+						<a href="<c:url value="/generateReport" />">Reorder Report</a>
               		</li>
 					<% } %>  
                     <li>

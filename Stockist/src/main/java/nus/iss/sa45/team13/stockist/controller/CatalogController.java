@@ -28,6 +28,7 @@ import nus.iss.sa45.team13.stockist.services.LocalInventoryListService;
 
 
 @Controller
+@Secured({"ROLE_ADMIN","ROLE_STAFF"})
 public class CatalogController {
 	
 	

@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -35,6 +36,7 @@ import nus.iss.sa45.team13.stockist.validators.SuppliersValidator;
 import nus.iss.sa45.team13.stockist.validators.TransationValidator;
 
 @Controller
+@Secured({"ROLE_ADMIN","ROLE_STAFF"})
 public class TransationController {
 
 	@Autowired
