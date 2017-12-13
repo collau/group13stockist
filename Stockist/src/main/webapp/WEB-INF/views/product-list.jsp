@@ -45,13 +45,13 @@ tr {line-height:1.5;}
 				<th>Desc</th>
 				<th>Color</th>
 				<th>Dimension</th> 		<!-- comes from i18n message properties, professionally done <spring:message code="caption.delete" />-->
-				<th style="text-align:center; padding:5">SupplierID</th>		<!--  hard-coded currently - to amend with spring message, ^edit as well -->
-				<th style="text-align:center; padding:5">ReOrder Pt</th>
-				<th style="text-align:center; padding:5">Min Order</th>
-				<th style="text-align:center; padding:5">Shelf</th>
-				<th style="text-align:center; padding:5">Category</th>
-				<th style="text-align:center; padding:5">Edit</th>
-				<th style="text-align:center; padding:5">Delete</th>
+				<th>SupplierID</th>		<!--  hard-coded currently - to amend with spring message, ^edit as well -->
+				<th>ReOrder Pt</th>
+				<th>Min Order</th>
+				<th>Shelf</th>
+				<th>Category</th>
+				<th>Edit</th>
+				<th>Delete</th>
 			</tr>
 		</thead>
 		<tbody>
