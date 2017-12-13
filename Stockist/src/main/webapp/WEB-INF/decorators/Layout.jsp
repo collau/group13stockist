@@ -35,9 +35,6 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="<c:url value="/about" />">
                     <img src="${carmechanicw}" height="30" style="padding-bottom: 5px;"></img>
