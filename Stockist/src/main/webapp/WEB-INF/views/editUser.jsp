@@ -14,7 +14,7 @@
 		<div class="col-sm-12 col-md-1 col-lg-3">
 			<div class="form-group">
 				<label>Staff ID</label>
-				<form:input path="userId" class="form-control" readonly="true" />
+				<form:input path="staffId" class="form-control" readonly="true" />
 			</div>
 			<div class="form-group">
 				<label>Name</label>
@@ -23,9 +23,9 @@
 			</div>
 			<div class="form-group">
 				<label>Is Administrator</label>
-				No<form:radiobutton path="adminStatus" value="false"/>
-				Yes<form:radiobutton path="adminStatus" value="true"/>
-				<form:errors path="adminStatus" cssStyle="color: red;"/>
+				No<form:radiobutton path="role" value="ROLE_STAFF"/>
+				Yes<form:radiobutton path="role" value="ROLE_ADMIN"/>
+				<form:errors path="role" cssStyle="color: red;"/>
 			</div>
 			<div class="form-group">
 				<input type="submit" value="Save Changes" class="btn btn-lg" />

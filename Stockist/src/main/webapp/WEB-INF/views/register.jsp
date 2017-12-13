@@ -15,7 +15,7 @@
 			<div class="form-group">
 				<label>Name</label>
 				<form:input path="name" class="form-control"/>
-			<form:errors path="name" cssStyle="color: red;"/>
+				<form:errors path="name" cssStyle="color: red;"/>
 			</div>
 			<div class="form-group">
 				<label>User Name </label>
@@ -26,11 +26,6 @@
 				<label>Password </label>
 				<form:password  path="password" class="form-control"/>
 				<form:errors path="password" cssStyle="color: red;"/>
-			</div>
-			<div class="form-group">
-				<label>Confirm Password </label>
-				<form:password path="confirmPassword" class="form-control"/>
-				<form:errors path="confirmPassword" cssStyle="color: red;"/>
 			</div>
 			<div class="form-group">
 				<label>Is Administrator</label>

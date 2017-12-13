@@ -22,8 +22,6 @@ import nus.iss.sa45.team13.stockist.model.User;
 import nus.iss.sa45.team13.stockist.repository.RoleRepository;
 import nus.iss.sa45.team13.stockist.repository.UserRepository;
 import nus.iss.sa45.team13.stockist.services.UserService;
-import nus.iss.sa45.team13.stockist.validators.RegisterFormValidator;
-import nus.iss.sa45.team13.stockist.validators.RoleValidator;
 
 @Controller
 public class CredentialsController {
@@ -37,17 +35,6 @@ public class CredentialsController {
 	@Autowired
 	UserService userService;
 	
-//	@Autowired
-//	RegisterFormValidator rfValidator;
-	
-	@Autowired
-	RoleValidator rValidator;
-	
-	@InitBinder("role")
-	private void initRegisterFormBinder(WebDataBinder binder) {
-		binder.setValidator(rValidator);
-	}
-
 	@RequestMapping(value = { "/login" }, method = RequestMethod.GET)
 	public ModelAndView LoginPage(Authentication authentication) {
 		ModelAndView mav = new ModelAndView();
@@ -104,13 +91,16 @@ public class CredentialsController {
 	@RequestMapping(value = "/admin/register", method = RequestMethod.POST)
 	public ModelAndView CompleteRegistration(@ModelAttribute @Valid RegisterForm userDetails, BindingResult result) {
 		
-		if(result.hasErrors())
-			return new ModelAndView("register");
-		
 		ModelAndView mav = new ModelAndView();
-
 		Role role = new Role();
 		User user = new User();
+		
+		if(result.hasErrors()) {
+			mav.setViewName("register");
+			mav.addObject(result);
+			mav.addObject("userDetails", userDetails);
+			return mav;
+		}			
 
 		// Now that the data is validated, register the user
 		user.setUserId(userDetails.getUserName());
@@ -121,9 +111,9 @@ public class CredentialsController {
 		// Save data to table
 		userDetails.setUserId(userService.saveUser(user, role));
 
-		mav.addObject("newUser", userDetails);
 		mav.setViewName("confirmRegistration");
-
+		mav.addObject("newUser", userDetails);
+		
 		return mav;
 	}
 
@@ -147,27 +137,19 @@ public class CredentialsController {
 	public ModelAndView DisplaySelectedUser(@PathVariable Integer userId) {
 		ModelAndView mav = new ModelAndView("editUser");
 		Role role = roleRepo.findRoleByUserId(userId);
-		RegisterForm selectedUser = new RegisterForm();
-		selectedUser.setName(role.getName());
-		selectedUser.setAdminStatus(role.getRole().equals("ROLE_ADMIN"));
-		selectedUser.setUserId(userId);
-		mav.addObject("selectedUser", selectedUser);
+		mav.addObject("selectedUser", role);
 		return mav;
 	}
 
 	@RequestMapping(value = "/admin/users/edit", method = RequestMethod.POST)
-	public ModelAndView ModifySelectedUser(@ModelAttribute("selectedUser") @Valid RegisterForm modifiedRole, BindingResult result) {
+	public ModelAndView ModifySelectedUser(@ModelAttribute("selectedUser") @Valid Role modifiedRole, BindingResult result) {
 		
 		if(result.hasErrors())
 			return new ModelAndView("editUser");
 		
 		ModelAndView mav = new ModelAndView("redirect:/admin/users/view");
-		Role r = new Role();
-		System.out.println("XXX ! " + modifiedRole.getUserId());
-		r.setStaffId(modifiedRole.getUserId());
-		r.setName(modifiedRole.getName());
-		r.setRole(modifiedRole.isAdminStatus() ? "ROLE_ADMIN" : "ROLE_STAFF");
-		roleRepo.saveAndFlush(r);
+
+		roleRepo.saveAndFlush(modifiedRole);
 		return mav;
 	}
 	

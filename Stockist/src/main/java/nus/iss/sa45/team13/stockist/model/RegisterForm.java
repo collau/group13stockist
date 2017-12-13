@@ -1,11 +1,22 @@
 package nus.iss.sa45.team13.stockist.model;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
 public class RegisterForm {
 	private Integer userId;
+	
+	@Size(min=4, max=30)
 	private String name;
+	
+	@Size(min=4, max=30)
 	private String userName;
+	
+	@Size(min=8, max=30)
 	private String password;
-	private String confirmPassword;
+	
+	@NotNull
 	private boolean adminStatus;
 	
 	public Integer getUserId() {
@@ -31,12 +42,6 @@ public class RegisterForm {
 	}
 	public void setPassword(String password) {
 		this.password = password;
-	}
-	public String getConfirmPassword() {
-		return confirmPassword;
-	}
-	public void setConfirmPassword(String confirmPassword) {
-		this.confirmPassword = confirmPassword;
 	}
 	public boolean isAdminStatus() {
 		return adminStatus;
