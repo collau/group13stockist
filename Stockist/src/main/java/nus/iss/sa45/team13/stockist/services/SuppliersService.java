@@ -12,10 +12,6 @@ public interface SuppliersService {
 
 	Suppliers findOneSupplier(int supid);
 
-//	ArrayList<Suppliers> findSupplierById(int supid);
-//
-//	ArrayList<Suppliers> findSupplierByName(String supname);
-
 	Suppliers createSupplier(Suppliers s);
 
 	Suppliers updateSupplier(Suppliers s);

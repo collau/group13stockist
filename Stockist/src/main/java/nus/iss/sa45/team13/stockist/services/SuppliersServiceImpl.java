@@ -37,26 +37,6 @@ public class SuppliersServiceImpl implements SuppliersService {
 	}
 	
 	/* (non-Javadoc)
-	 * @see nus.iss.sa45.team13.stockist.services.SuppliersService#findSupplierById(int)
-	 */
-//	@Override
-//	@Transactional
-//	public ArrayList<Suppliers> findSupplierById(int supid)
-//	{
-//		return suprepos.findSupplierById(supid);
-//	}
-	
-	/* (non-Javadoc)
-	 * @see nus.iss.sa45.team13.stockist.services.SuppliersService#findSupplierByName(java.lang.String)
-	 */
-//	@Override
-//	@Transactional
-//	public ArrayList<Suppliers> findSupplierByName(String supname)
-//	{
-//		return suprepos.findSupplierByName(supname);
-//	}
-	
-	/* (non-Javadoc)
 	 * @see nus.iss.sa45.team13.stockist.services.SuppliersService#createSupplier(nus.iss.sa45.team13.stockist.model.Suppliers)
 	 */
 	@Override
