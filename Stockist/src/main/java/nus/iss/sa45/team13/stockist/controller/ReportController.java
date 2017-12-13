@@ -79,60 +79,10 @@ public class ReportController {
 		JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport,params,conn);
 		//end - fill data
 		
-		//prepare and put it into pdf
+		//prepare and put it into pdf file
 		response.setContentType("application/pdf");
 		response.setHeader("Content-disposition", "inline; filename=reorderReport.pdf");
 		final OutputStream outStream = response.getOutputStream();
 		JasperExportManager.exportReportToPdfStream(jasperPrint, outStream);
 	}
 }
-
-
-//		public void generateReport(HttpServletRequest request, HttpServletResponse response) throws SQLException, JRException, IOException
-		
-			
-//			JRPdfExporter exporter = new JRPdfExporter();
-//			
-//			exporter.setExporterInput(new SimpleExporterInput(jasperPrint));
-//			exporter.setExporterOutput(new SimpleOutputStreamExporterOutput("/reorderReport.pdf"));
-//			
-//			SimplePdfReportConfiguration reportConfig
-//			  = new SimplePdfReportConfiguration();
-//			reportConfig.setSizePageToContent(true);
-//			reportConfig.setForceLineBreakPolicy(false);
-//			 
-//			SimplePdfExporterConfiguration exportConfig
-//			  = new SimplePdfExporterConfiguration();
-//			 
-//			exporter.setConfiguration(reportConfig);
-//			exporter.setConfiguration(exportConfig);
-//			 
-//			exporter.exportReport();
-//		}}}
-
-
-//private JasperReport getCompiledFile(String fileName, HttpServletRequest request) throws JRException {
-//	File reportFile = new File(request.getSession().getServletContext().getRealPath("/reports/ReorderReport.jasper"));
-//	if(!reportFile.exists()) {
-//		JasperCompileManager.compileReportToFile(request.getSession().getServletContext().getRealPath("/reports/ReorderReport.jrxml"),
-//				request.getSession().getServletContext().getRealPath("/reports/ReorderReport.jasper"));
-//	}
-//	JasperReport jasperReport = (JasperReport) JRLoader.loadObjectFromFile(reportFile.getPath());
-//	return jasperReport;
-//}
-
-//private void generateReportPDF (HttpServletResponse response, JasperReport jasperReport, Connection conn) throws JRException, IOException
-//{
-//	byte[] bytes = null;
-//	bytes = JasperRunManager.runReportToPdf(jasperReport,null,conn);
-//	response.reset();
-//	response.resetBuffer();
-//	response.setContentType("application/pdf");
-//	response.setContentLength(bytes.length);
-//	ServletOutputStream outputStream = response.getOutputStream();
-//	outputStream.write(bytes,0,bytes.length);
-//	outputStream.flush();
-//	outputStream.close();
-	
-
-
