@@ -3,6 +3,7 @@ package nus.iss.sa45.team13.stockist.validators;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.jfree.ui.about.SystemPropertiesTableModel;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
@@ -32,7 +33,9 @@ public class TransationValidator implements Validator {
 		
 		LocalinventoryList l = (LocalinventoryList) arg0;
 		
-		ValidationUtils.rejectIfEmpty(arg1, "pathNumber", "error.quantity.empty");
+		ValidationUtils.rejectIfEmpty(arg1, "partNumber", "error.quantity.empty");
+		
+		System.out.println(l.toString());
 
 		 //input string contains numeric values only for contact
 //		  if (l.getStoreqty() < 0) {  
