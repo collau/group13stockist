@@ -19,9 +19,18 @@
 </style>
 </head>
 <body>
+	<nav class="navbar navbar-inverse navbar-static-top"
+		style="margin-top: -20px">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<a class="navbar-brand"
+				href="${pageContext.request.contextPath}/catalog">Catalog</a>
+		</div>
+	</nav>
 	<div>
-		<form action="${pageContext.request.contextPath}/translist" method="post">
-			
+		<form action="${pageContext.request.contextPath}/translist"
+			method="post">
+
 			<c:if test="${fn:length(productlist) gt 0 }">
 				<c:forEach var="product" varStatus="loop" items="${productlist}">
 					<div class="col-sm-12 col-md-4 col-lg-3">
@@ -40,10 +49,13 @@
 				<br />
 			</c:if>
 			<input type="submit" value="Confirm"
-					style="border-radius: 5px; width: 100px; height: 40px;">
-			<br /> <b><font face="Georgia, Garamond, Palatino, serif"
-				size="3"> 
-			</font></b><br /> Select Date Time:
+				style="border-radius: 5px; width: 100px; height: 40px;"> 
+				
+				<a
+				href="${pageContext.request.contextPath}/translist/cancel"><button
+					value="cancel">Cancel</button></a> <br /> <b><font
+				face="Georgia, Garamond, Palatino, serif" size="3"> </font></b><br />
+			Select Date Time:
 			<%=new java.util.Date()%>
 		</form>
 	</div>

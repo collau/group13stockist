@@ -26,7 +26,7 @@
 
 		<div class="col-sm-12 col-md-4 col-lg-3">
 			<ul class="list-group">
-				<li class="list-group-item"><img src="/Stockist/image/ttt.jpg" class="img-thumbnail"></li>
+				<li class="list-group-item"><div style="width:200px; height:150px"><img src="/Stockist/image/part/${currentproduct.partName}.jpg" class="img-thumbnail"></div></li>
 				<li class="list-group-item">Part Name :
 					${currentproduct.partName}</li>
 				<li class="list-group-item">Part Number :
@@ -51,6 +51,7 @@
 			</ul>
 			Quantity Selected:<br>
 			<form:input path="partNumber" class="form-control" />
+			<form:errors path="partNumber" cssStyle="color: red;"/>
 			<input type="submit" value="Save" />
 		</div>
 

@@ -29,43 +29,24 @@ public class TransationValidator implements Validator {
 
 	@Override
 	public void validate(Object arg0, Errors arg1) throws NumberFormatException{
+		
 		LocalinventoryList l = (LocalinventoryList) arg0;
-		ValidationUtils.rejectIfEmpty(arg1, "supplierid", "error.suppliers.id.empty");
-		ValidationUtils.rejectIfEmpty(arg1, "name", "error.suppliers.name.empty");
-		ValidationUtils.rejectIfEmpty(arg1, "address", "error.suppliers.address.empty");
-		ValidationUtils.rejectIfEmpty(arg1, "country", "error.suppliers.country.empty");
-		ValidationUtils.rejectIfEmpty(arg1, "contact", "error.suppliers.contact.empty");
-
 		
-		
-		// input string contains numeric values only for contact
-		  if (l.getStoreqty() < 0) {  
-		  
-			  arg1.rejectValue("contact", "contact.incorrect",  
-				      "ContactNumber should contain 8 numeric digits");  
-		    
-		   }  
-	}
+		ValidationUtils.rejectIfEmpty(arg1, "pathNumber", "error.quantity.empty");
 
-		/*// input string contains characters only for country
-		if (!(s.getCountry() != null && s.getCountry().isEmpty())) {
-			pattern = Pattern.compile(COUNTRY_PATTERN);
-			matcher = pattern.matcher(s.getCountry());
-			if (!matcher.matches()) {
-				arg1.rejectValue("country", "country.containNonChar", "Enter a valid country name.");
-			}
-		}
-
-		System.out.println(s.toString());
-		  }
+		 //input string contains numeric values only for contact
+//		  if (l.getStoreqty() < 0) {  
+//			  arg1.rejectValue("partNumber", "number.negative", "Number is negative");    
+//				      
+//		   }  
 	}
-	*/
-    public static boolean isIntegerParseInt(String str) {
-        try {
-            Integer.parseInt(str);
-            return true;
-        } catch (NumberFormatException nfe) {}
-        return false;
-    }
+	
+//    public static boolean isIntegerParseInt(String str) {
+//        try {
+//            Integer.parseInt(str);
+//            return true;
+//        } catch (NumberFormatException nfe) {}
+//        return false;
+//    }
 
 }

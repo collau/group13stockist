@@ -49,13 +49,17 @@
 	<br>
 	<br>
 	<br>
-
+	<c:if test="${not empty catalogError}">
+												<div class="alert alert-warning">
+													An error has occurred.
+												</div>
+											</c:if>
 	<c:if test="${fn:length(catalog) gt 0 }">
 		<c:forEach var="p" varStatus="loop" items="${catalog}">
 			<div class="col-sm-12 col-md-4 col-lg-3">
 					<ul class="list-group">
 					
-						<li class="list-group-item"><img src="/Stockist/image/ttt.jpg" class="img-thumbnail"></li>
+						<li class="list-group-item"><div style="width:200px; height:150px"><img src="/Stockist/image/part/${p.partName}.jpg" class="img-thumbnail"></div></li>
 						<li class="list-group-item">Part Name : ${p.partName}</li>
 						<li class="list-group-item">Part Number : ${p.partNumber}</li>
 						<li class="list-group-item">Part UnitPrice : ${p.unitPrice}</li>

@@ -31,13 +31,16 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import nus.iss.sa45.team13.stockist.model.Product;
 import nus.iss.sa45.team13.stockist.services.ProductService;
 import nus.iss.sa45.team13.stockist.validators.ProductValidator;
+import nus.iss.sa45.team13.stockist.validators.TransationValidator;
 
 
 @Controller
+@Secured({"ROLE_ADMIN","ROLE_STAFF"})
 public class ProductController {
 
 	@Autowired
 	private ProductService pService;
+
 
 //	@Autowired
 //	private ProductValidator pValidator;
@@ -52,6 +55,7 @@ public class ProductController {
 	@RequestMapping(value = "/viewproduct/{partNumber}", method = RequestMethod.GET)
 	public ModelAndView ProductDetails(@PathVariable int partNumber) {
 
+		
 		Product product = pService.findOne(partNumber);
 		Product emptyproduct = new Product();
 		ModelAndView mav = new ModelAndView("viewproduct", "currentproduct", product);
@@ -105,8 +109,9 @@ public class ProductController {
 	}
 
 	@RequestMapping(value = "/admin/viewproduct/edit/{partNumber}", method = RequestMethod.POST)
-	public ModelAndView confirmEditProductPage(@ModelAttribute @Valid Product product, BindingResult result,
+	public ModelAndView confirmEditProductPage(@ModelAttribute Product product, BindingResult result,
 			final RedirectAttributes redirattr, @PathVariable String partNumber) {
+		
 		if (result.hasErrors())
 			return new ModelAndView("product-edit");
 
@@ -128,8 +133,11 @@ public class ProductController {
 	}
 
 	@RequestMapping(value = "/viewproduct/{partNumber}", method = RequestMethod.POST)
-	public ModelAndView AddToCart(@ModelAttribute Product savedQty, BindingResult result,
-			RedirectAttributes redirectAttributes, HttpSession httpSession, @PathVariable int partNumber) {
+	public ModelAndView AddToCart(@ModelAttribute("emptyproduct") @Valid Product savedQty, BindingResult result,
+			RedirectAttributes redirectAttributes, HttpSession httpSession, @PathVariable int partNumber, ModelAndView current) {
+
+		if (result.hasErrors())
+			return new ModelAndView("redirect:/catalog");
 
 		Product savedproduct = pService.findOne(partNumber);
 		System.out.println("savedproduct found" + savedproduct.toString());

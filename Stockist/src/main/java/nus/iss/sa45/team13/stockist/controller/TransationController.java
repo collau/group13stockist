@@ -31,6 +31,7 @@ import nus.iss.sa45.team13.stockist.services.LocalInventoryListService;
 import nus.iss.sa45.team13.stockist.services.ProductService;
 import nus.iss.sa45.team13.stockist.services.TransationDetailsService;
 import nus.iss.sa45.team13.stockist.services.TransationService;
+import nus.iss.sa45.team13.stockist.validators.SuppliersValidator;
 import nus.iss.sa45.team13.stockist.validators.TransationValidator;
 
 @Controller
@@ -47,6 +48,9 @@ public class TransationController {
 	@Autowired
 	private LocalInventoryListService localService;
 
+	
+	
+	
 	@RequestMapping(value = "/translist", method = RequestMethod.GET)
 	public ModelAndView tranListPage(HttpSession httpSession) {
 
@@ -156,9 +160,19 @@ public class TransationController {
 		}
 
 		ModelAndView mav = new ModelAndView();
-		System.out.println("vaewgds");
 		mav.setViewName("redirect:/catalog");
 
+		return mav;
+	}
+
+	
+	@RequestMapping(value = "/translist/cancel", method = RequestMethod.POST)
+	public ModelAndView returnToCatalog(HttpSession httpSession ) {
+	
+		httpSession.invalidate();
+		
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("redirect:/catalog");
 		return mav;
 	}
 
