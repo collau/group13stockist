@@ -36,7 +36,6 @@ import nus.iss.sa45.team13.stockist.validators.ProductValidator;
 
 
 @Controller
-@Secured({"ROLE_ADMIN","ROLE_STAFF"})
 public class ProductController {
 
 	@Autowired
