@@ -30,22 +30,22 @@ action="${pageContext.request.contextPath}/admin/suppliers/create"> <!-- modelAt
 		<tbody>
 				<tr>
 				<td>Supplier Name</td>
-				<td><form:input path="name" /></td>
+				<td><form:input path="name" size="50"/></td>
 				<td><form:errors path="name" cssStyle="color: red;"/></td>
 			</tr>
 			<tr>
 				<td>Supplier Address</td>
-				<td><form:input path="address" /></td>
+				<td><form:input path="address" size="50"/></td>
 				<td><form:errors path="address" cssStyle="color: red;"/></td>
 			</tr>
 			<tr>
 				<td>Country of Supplier</td>
-				<td><form:input path="country" /></td>
+				<td><form:input path="country" size="50"/></td>
 				<td><form:errors path="country" cssStyle="color: red;"/></td>
 			</tr>
 			<tr>
 				<td>Supplier Contact</td>
-				<td><form:input path="contact" /></td>
+				<td><form:input path="contact" size="50"/></td>
 				<td><form:errors path="contact" cssStyle="color: red;"/></td>
 			</tr>
 		</tbody>
