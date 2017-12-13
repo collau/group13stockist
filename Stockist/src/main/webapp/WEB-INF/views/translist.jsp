@@ -47,15 +47,20 @@
 				</c:forEach>
 				<br />
 			</c:if>
-			<input type="submit" value="Confirm"
-				style="border-radius: 5px; width: 100px; height: 40px;"> 
+			<div style="clear:both;">
+			<input type="submit" value="Confirm" class="btn btn-default btn-lg"
+				> 
 				
 				<a
-				href="${pageContext.request.contextPath}/translist/cancel"><button
-					value="cancel">Cancel</button></a> <br /> <b><font
+				href="${pageContext.request.contextPath}/translist/cancel"><button class="btn btn-default btn-lg"
+					value="cancel">Cancel</button></a>
+					
+					
+					 <br /> <b><font
 				face="Georgia, Garamond, Palatino, serif" size="3"> </font></b><br />
 			Select Date Time:
 			<%=new java.util.Date()%>
+			</div>
 		</form>
 	</div>
 

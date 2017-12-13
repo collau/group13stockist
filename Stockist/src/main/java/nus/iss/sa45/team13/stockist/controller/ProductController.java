@@ -28,7 +28,9 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import nus.iss.sa45.team13.stockist.model.LocalinventoryList;
 import nus.iss.sa45.team13.stockist.model.Product;
+import nus.iss.sa45.team13.stockist.services.LocalInventoryListService;
 import nus.iss.sa45.team13.stockist.services.ProductService;
 import nus.iss.sa45.team13.stockist.validators.ProductValidator;
 
@@ -41,6 +43,10 @@ public class ProductController {
 
 	@Autowired
 	private ProductValidator pValidator;
+
+	@Autowired
+	private LocalInventoryListService iService;
+
 
 	@InitBinder("product")
 	private void initProductBinder(WebDataBinder binder) {
@@ -131,6 +137,13 @@ public class ProductController {
 	public ModelAndView AddToCart(@ModelAttribute Product savedQty, BindingResult result,
 			RedirectAttributes redirectAttributes, HttpSession httpSession, @PathVariable int partNumber) {
 
+		int qtyLeft = ((LocalinventoryList)(iService.findOne(partNumber))).getStoreqty();
+		if(savedQty.getPartNumber()> qtyLeft) {
+			ModelAndView mav = new ModelAndView("redirect:/catalog");
+			redirectAttributes.addAttribute("catalogError", new Integer(1));
+			return mav;
+		}
+		
 		Product savedproduct = pService.findOne(partNumber);
 		System.out.println("savedproduct found" + savedproduct.toString());
 

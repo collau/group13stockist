@@ -79,7 +79,7 @@ public class TransationController {
 		} catch (Exception e) {
 
 			System.out.println("EEEException: " + e.toString());
-			httpSession.invalidate();
+			httpSession.removeAttribute("saved");
 			mav.setViewName("redirect:/catalog");
 		}
 		// To get user id first get logged in name
@@ -103,6 +103,7 @@ public class TransationController {
 	public ModelAndView newTranRrecordPage(HttpSession httpSession, @ModelAttribute Transation trans,
 			BindingResult result, final RedirectAttributes redirectAttributes) {
 
+			Map saved = (Map) httpSession.getAttribute("saved");
 		try {
 			/*
 			 * User currUser; try { currUser = userRepo.findUserByUserId(
@@ -126,7 +127,7 @@ public class TransationController {
 			Transation submitTran = submitTranList.get(submitTranList.size() - 1);
 			int tranId = submitTran.getTransid();
 
-			Map saved = (Map) httpSession.getAttribute("saved");
+			
 
 			Set set = saved.entrySet();
 			Iterator iterator = set.iterator();
@@ -155,8 +156,8 @@ public class TransationController {
 
 			System.out.println("EEEEException: " + e.toString());
 		} finally {
-
-			httpSession.invalidate();
+			saved.clear();
+			
 		}
 
 		ModelAndView mav = new ModelAndView();
@@ -169,7 +170,14 @@ public class TransationController {
 	@RequestMapping(value = "/translist/cancel", method = RequestMethod.POST)
 	public ModelAndView returnToCatalog(HttpSession httpSession ) {
 	
-		httpSession.invalidate();
+		try {
+			Map saved = (Map) httpSession.getAttribute("saved");
+			saved.clear();
+		}catch(Exception e) {
+			
+			System.out.println("EEE session wrong here" + e.getMessage());
+		}
+		
 		
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("redirect:/catalog");

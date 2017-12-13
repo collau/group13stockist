@@ -50,11 +50,12 @@
 	<br>
 	<br>
 	<br>
-	<c:if test="${not empty catalogError}">
-												<div class="alert alert-warning">
-													An error has occurred.
-												</div>
-											</c:if>
+	
+		<c:if test="${fn:length(catalogError) gt 0 }">
+		<div class="alert alert-warning">
+			An error has occurred.
+		</div>
+	</c:if>
 	<c:if test="${fn:length(catalog) gt 0 }">
 		<c:forEach var="p" varStatus="loop" items="${catalog}">
 			<div class="col-sm-12 col-md-4 col-lg-3">
