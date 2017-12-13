@@ -16,24 +16,20 @@
 		style="margin-top: -20px">
 	<div class="container-fluid">
 		<div class="navbar-header">
-			<a class="navbar-brand" href="#">Product</a>
+			<a class="navbar-brand" href="#">Create Product</a>
 		</div>
 	</div>
 	</nav>
 
 	<br />
-	<br />
-	<br />
+
 
 	<form:form method="POST" modelAttribute="product"
 		action="${pageContext.request.contextPath}/admin/viewproduct/create">
 		<!-- modelAttr must match with model -->
+		<p style="margin-left:20"/>
 		<table>
 			<tbody>
-				<tr>
-					<td>Create New Product</td>
-					<br>
-				</tr>
 				<tr>
 					<td>Part Name</td>
 					<td><form:input path="partName" /></td>
@@ -84,14 +80,11 @@
 					<td><form:input path="category" /></td>
 					<td><form:errors path="category" cssStyle="color: red;" /></td>
 				</tr>
-
-				<tr>
-					<td><input type="submit" value="Create Product" /></td>
-					<td></td>
-					<td></td>
-				</tr>
 			</tbody>
 		</table>
+		<br/>
+		<br/>
+		<input type="submit" value="Create Product" />
 	</form:form>
 
 </body>

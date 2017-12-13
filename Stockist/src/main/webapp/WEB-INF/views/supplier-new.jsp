@@ -25,7 +25,7 @@
 		
 <form:form method="POST" modelAttribute="suppliers" 
 action="${pageContext.request.contextPath}/admin/suppliers/create"> <!-- modelAttr must match with model -->
-	<p style="margin-left:10"/>
+	<p style="margin-left:20"/>
 	<table>
 		<tbody>
 				<tr>
