@@ -39,7 +39,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/Team13Bookshop/home">
+                <a class="navbar-brand" href="/about">
                     <img src="${carmechanicw}" height="30" style="padding-bottom: 5px;"></img>
                 </a>
                 <c:choose>
@@ -57,10 +57,10 @@
                 <ul class="nav navbar-nav navbar-right">
                 	<% if (request.isUserInRole("ROLE_ADMIN")) { %>
                 		<li>
-						<a href="<c:url value="/admin/viewproduct/list" />">View Products</a>
+						<a href="<c:url value="/admin/viewproduct/list" />">Manage Products</a>
               		</li>
                 		<li>
-						<a href="<c:url value="/admin/suppliers/list" />">View Suppliers</a>
+						<a href="<c:url value="/suppliers/list" />">Manage Suppliers</a>
               		</li>
                 		<li>
 						<a href="<c:url value="/admin/users/view" />">View Users</a>
@@ -69,10 +69,16 @@
 						<a href="<c:url value="/admin/register" />">Create New User</a>
               		</li>
               		<li>
-						<a href="<c:url value="/admin/generateReport" />">Reorder Report</a>
+						<a href="<c:url value="/generateReport" />">Reorder Report</a>
               		</li>
 					<% } %>  
-                    <li>                    	
+                    <li>
+                    <% if (request.isUserInRole("ROLE_STAFF")) { %>
+                		<li>
+						<a href="<c:url value="/catalog" />">View Catalog</a>
+              		</li>
+					<% } %>  
+                    <li>                  	
                     	<!-- LOGIN STATUS -->
                     	<c:if test="${HideLoginPageFlag != 1}">
 	                    	<c:choose>
