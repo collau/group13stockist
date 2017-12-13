@@ -51,12 +51,9 @@
 			</ul>
 			Quantity Selected:<br>
 			<form:input path="partNumber" class="form-control" />
-<<<<<<< HEAD
 			<form:errors path="partNumber" cssStyle="color: red;"/>
-			<input type="submit" value="Save" />
-=======
 			<input type="submit" value="Save" class="btn btn-default btn-lg"/>
->>>>>>> branch 'master' of https://github.com/e0224940/group13stockist.git
+
 		</div>
 
 	</form:form>
