@@ -37,7 +37,7 @@ Vehicle License Plate No: <input type="text" value="licenceNo" style="width: 25p
 	</c:if>
 </tr>
 <tr>
-<td colspan="2"><input type="submit">Confirm</td>
+<td colspan="2"><input type="submit" class="btn btn-default btn-lg">Confirm</td>
 </tr>
 </table>
 </form>

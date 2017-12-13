@@ -51,7 +51,7 @@
 			</ul>
 			Quantity Selected:<br>
 			<form:input path="partNumber" class="form-control" />
-			<input type="submit" value="Save" />
+			<input type="submit" value="Save" class="btn btn-default btn-lg"/>
 		</div>
 
 	</form:form>

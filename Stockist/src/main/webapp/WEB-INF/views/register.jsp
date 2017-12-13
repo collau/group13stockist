@@ -33,7 +33,7 @@
 				Yes<form:radiobutton path="adminStatus" value="true"/>
 			</div>
 			<div class="form-group">
-				<input type="submit" value="Create" class="btn btn-lg" />
+				<input type="submit" value="Create" class="btn btn-default btn-lg" />
 			</div>
 		</div>
 	</form:form>

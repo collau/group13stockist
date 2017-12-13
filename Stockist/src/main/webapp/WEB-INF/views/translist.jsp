@@ -40,7 +40,7 @@
 				<br />
 			</c:if>
 			<input type="submit" value="Confirm"
-					style="border-radius: 5px; width: 100px; height: 40px;">
+					style="border-radius: 5px; width: 100px; height: 40px; " class="btn btn-default btn-lg">
 			<br /> <b><font face="Georgia, Garamond, Palatino, serif"
 				size="3"> 
 			</font></b><br /> Select Date Time:

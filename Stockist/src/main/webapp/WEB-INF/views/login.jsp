@@ -54,7 +54,7 @@
 									</tr>
 									<tr>
 										<td colspan="3">
-											<button class="btn btn-lg" name="Submit" value="Submit" type="Submit">
+											<button class="btn btn-default btn-lg" name="Submit" value="Submit" type="Submit">
 												Login
 											</button>
 										</td>

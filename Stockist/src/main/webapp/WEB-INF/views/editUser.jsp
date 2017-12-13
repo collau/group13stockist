@@ -28,7 +28,7 @@
 				<form:errors path="role" cssStyle="color: red;"/>
 			</div>
 			<div class="form-group">
-				<input type="submit" value="Save Changes" class="btn btn-lg" />
+				<input type="submit" value="Save Changes" class="btn btn-default btn-lg" />
 			</div>
 		</div>
 	</form:form>

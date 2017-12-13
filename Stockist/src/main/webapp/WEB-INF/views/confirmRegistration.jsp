@@ -39,7 +39,7 @@
 			<input type="text" readonly="readonly" class="form-control" value="${newUser.password}"/>
 		</div>
 		<div class="form-group">	
-			<input type="submit" value="Return" class="btn btn-lg"/>
+			<input type="submit" value="Return" class="btn btn-default btn-lg"/>
 		</div>
 	</form:form>
 	

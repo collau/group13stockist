@@ -52,7 +52,7 @@ action="${pageContext.request.contextPath}/admin/suppliers/create"> <!-- modelAt
 	</table>
 	<br/>
 	<br/>
-	<input type="submit" value="Create Supplier" />
+	<input type="submit" value="Create Supplier" class="btn btn-default btn-lg" />
 </form:form>
 
 </body>
