@@ -4,6 +4,9 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Digits;
+
+import org.hibernate.annotations.Type;
 
 @Entity
 @Table (name="suppliers")

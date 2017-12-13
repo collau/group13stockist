@@ -21,8 +21,8 @@ import nus.iss.sa45.team13.stockist.model.Suppliers;
 import nus.iss.sa45.team13.stockist.services.SuppliersService;
 import nus.iss.sa45.team13.stockist.validators.SuppliersValidator;
 
-@Secured("ROLE_ADMIN")
-//@RequestMapping(value = "/suppliers")
+//@Secured("ROLE_ADMIN")
+@RequestMapping(value = "/admin/suppliers")
 @Controller
 public class SuppliersController {
 
@@ -84,6 +84,7 @@ public class SuppliersController {
 	@RequestMapping(value = "/edit/{supplierid}", method = RequestMethod.POST)
 	public ModelAndView confirmEditSupplierPage(@ModelAttribute @Valid Suppliers supplier, BindingResult result,
 			final RedirectAttributes redirattr, @PathVariable String supplierid) {
+		
 		if (result.hasErrors())
 			return new ModelAndView("suppliers-edit");
 

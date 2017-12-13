@@ -60,7 +60,7 @@
 						<a href="<c:url value="/admin/viewproduct/list" />">Manage Products</a>
               		</li>
                 		<li>
-						<a href="<c:url value="/suppliers/list" />">Manage Suppliers</a>
+						<a href="<c:url value="/admin/suppliers/list" />">Manage Suppliers</a>
               		</li>
                 		<li>
 						<a href="<c:url value="/admin/users/view" />">View Users</a>
@@ -69,7 +69,7 @@
 						<a href="<c:url value="/admin/register" />">Create New User</a>
               		</li>
               		<li>
-						<a href="<c:url value="/generateReport" />">Reorder Report</a>
+						<a href="<c:url value="/admin/generateReport" />">Reorder Report</a>
               		</li>
 					<% } %>  
                     <li>
