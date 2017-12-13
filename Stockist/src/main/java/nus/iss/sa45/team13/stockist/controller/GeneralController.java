@@ -13,4 +13,11 @@ public class GeneralController {
 		
 		return mav;
 	}
+	
+	@RequestMapping(value= {"/access-denied"})
+	public ModelAndView AccessDenied() {
+		ModelAndView mav = new ModelAndView("accessdenied");
+		
+		return mav;
+	}
 }
