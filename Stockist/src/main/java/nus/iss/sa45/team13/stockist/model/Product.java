@@ -4,15 +4,11 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name="productdata")
 public class Product {
 	@Id
-	@NotNull 
-	@Min(value=1)
 	@Column(name = "partnumber")
 	private int partNumber;
 	
@@ -20,7 +16,7 @@ public class Product {
 	private String partName;
 	
 	@Column(name = "unitprice")
-	private double unitPrice;
+	private Double unitPrice;
 	
 	@Column(name = "description")
 	private String description;
@@ -29,16 +25,16 @@ public class Product {
 	private String color;
 	
 	@Column(name = "dimension")
-	private double dimension;
+	private Double dimension;
 	
 	@Column(name = "supplierid")
-	private int supplierId;
+	private Integer supplierId;
 	
 	@Column(name = "reorderpoint")
-	private int reorderPoint;
+	private Integer reorderPoint;
 	
 	@Column(name = "minorder")
-	private int minOrder;
+	private Integer minOrder;
 	
 	@Column(name = "shelflocation")
 	private String shelfLocation;
@@ -51,8 +47,8 @@ public class Product {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Product(int partNumber, String partName, double unitPrice, String description, String color,
-			double dimension, int supplierid, int reorderpoint, int minorder, String shelfLocation, String category) {
+	public Product(int partNumber, String partName, Double unitPrice, String description, String color,
+			Double dimension, Integer supplierid, Integer reorderpoint, Integer minorder, String shelfLocation, String category) {
 		super();
 		this.partNumber = partNumber;
 		this.partName = partName;
@@ -85,11 +81,11 @@ public class Product {
 		this.partName = partName;
 	}
 
-	public double getUnitPrice() {
+	public Double getUnitPrice() {
 		return unitPrice;
 	}
 
-	public void setUnitPrice(double unitPrice) {
+	public void setUnitPrice(Double unitPrice) {
 		this.unitPrice = unitPrice;
 	}
 
@@ -109,35 +105,35 @@ public class Product {
 		this.color = color;
 	}
 
-	public double getDimension() {
+	public Double getDimension() {
 		return dimension;
 	}
 
-	public void setDimension(double dimension) {
+	public void setDimension(Double dimension) {
 		this.dimension = dimension;
 	}
 
-	public int getSupplierId() {
+	public Integer getSupplierId() {
 		return supplierId;
 	}
 
-	public void setSupplierId(int supplierId) {
+	public void setSupplierId(Integer supplierId) {
 		this.supplierId = supplierId;
 	}
 
-	public int getReorderPoint() {
+	public Integer getReorderPoint() {
 		return reorderPoint;
 	}
 
-	public void setReorderPoint(int reorderPoint) {
+	public void setReorderPoint(Integer reorderPoint) {
 		this.reorderPoint = reorderPoint;
 	}
 
-	public int getMinOrder() {
+	public Integer getMinOrder() {
 		return minOrder;
 	}
 
-	public void setMinOrder(int minOrder) {
+	public void setMinOrder(Integer minOrder) {
 		this.minOrder = minOrder;
 	}
 
