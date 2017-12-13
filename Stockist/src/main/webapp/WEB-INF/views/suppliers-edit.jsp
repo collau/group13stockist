@@ -62,7 +62,7 @@ action="${pageContext.request.contextPath}/admin/suppliers/edit/${suppliers.supp
 	</table>
 	<br/>
 	<br/>
-	<input type="submit" value="Save Details" />
+	<input type="submit" value="Save Details" class="btn btn-default btn-lg" />
 </form:form>
 </body>
 </html>

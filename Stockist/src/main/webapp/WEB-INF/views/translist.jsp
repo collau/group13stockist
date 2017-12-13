@@ -28,9 +28,8 @@
 		</div>
 	</nav>
 	<div>
-		<form action="${pageContext.request.contextPath}/translist"
-			method="post">
-
+		<form action="${pageContext.request.contextPath}/translist" method="post">
+			
 			<c:if test="${fn:length(productlist) gt 0 }">
 				<c:forEach var="product" varStatus="loop" items="${productlist}">
 					<div class="col-sm-12 col-md-4 col-lg-3">

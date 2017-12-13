@@ -84,7 +84,7 @@
 		</table>
 		<br/>
 		<br/>
-		<input type="submit" value="Create Product" />
+		<input type="submit" value="Create Product" class="btn btn-default btn-lg" />
 	</form:form>
 
 </body>

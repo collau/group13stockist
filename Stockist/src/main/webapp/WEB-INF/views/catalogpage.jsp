@@ -2,6 +2,7 @@
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ page session="true" %>
 <%@ page import="nus.iss.sa45.team13.stockist.model.Product" %>
@@ -62,8 +63,8 @@
 						<li class="list-group-item"><div style="width:200px; height:150px"><img src="/Stockist/image/part/${p.partName}.jpg" class="img-thumbnail"></div></li>
 						<li class="list-group-item">Part Name : ${p.partName}</li>
 						<li class="list-group-item">Part Number : ${p.partNumber}</li>
-						<li class="list-group-item">Part UnitPrice : ${p.unitPrice}</li>
-						<li class="list-group-item">Qty in Stock: ${inventoryList[loop.index].storeqty}</li>
+						<li class="list-group-item">Price : <fmt:formatNumber value="${p.unitPrice}" currencySymbol="$" type="currency"></fmt:formatNumber></li>
+						<li class="list-group-item">In Stock: ${inventoryList[loop.index].storeqty}</li>
 						<li class="list-group-item"><a href="${pageContext.request.contextPath}/viewproduct/${p.partNumber}">select</a></li>
 					</ul>
 			</div>

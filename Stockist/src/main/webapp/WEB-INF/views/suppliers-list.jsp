@@ -30,7 +30,7 @@ tr {line-height:1.5;}
 			<div class="form-group">
 				<form:input path="supplierid" class="form-control"/>
 			</div>
-			<input type="submit" value="Search" class="btn btn-default" />
+			<input type="submit" value="Search" class="btn btn-default btn-lg" />
 		</form:form> --%>
 
 	</div>
