@@ -34,7 +34,7 @@
 				<c:forEach var="product" varStatus="loop" items="${productlist}">
 					<div class="col-sm-12 col-md-4 col-lg-3">
 						<ul class="list-group">
-							<li class="list-group-item">Image Here</li>
+							<li class="list-group-item"><div style="width:200px; height:150px"><img src="/Stockist/image/part/${product.partName}.jpg" class="img-thumbnail"></div></li>
 							<li class="list-group-item">Part Name : ${product.partName}</li>
 							<li class="list-group-item">Part Number :
 								${product.partNumber}</li>
@@ -53,7 +53,7 @@
 				
 				<a
 				href="${pageContext.request.contextPath}/translist/cancel"><button class="btn btn-default btn-lg"
-					value="cancel">Cancel</button></a>
+					value="cancel">Clear Cart</button></a>
 					
 					
 					 <br /> <b><font
