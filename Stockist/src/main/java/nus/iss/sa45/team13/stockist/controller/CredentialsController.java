@@ -8,8 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.WebDataBinder;
-import org.springframework.web.bind.annotation.InitBinder;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -62,11 +61,11 @@ public class CredentialsController {
 			if (role.equals("[ROLE_ADMIN]")) {
 				System.out.println("REDIRECTING TO ADMIN PAGE...");
 				// TODO : If logged in goto to homepage based on role
-				mav.setViewName("redirect:/about");
+				mav.setViewName("redirect:/catalog");
 			} else if (role.equals("[ROLE_STAFF]")) {
 				System.out.println("REDIRECTING TO STAFF PAGE...");
 				// TODO : If logged in goto to homepage based on role
-				mav.setViewName("redirect:/about");
+				mav.setViewName("redirect:/catalog");
 			} else {
 				// No idea what role is this, goto about page
 				mav.setViewName("redirect:/about");
@@ -89,17 +88,14 @@ public class CredentialsController {
 	}
 
 	@RequestMapping(value = "/admin/register", method = RequestMethod.POST)
-	public ModelAndView CompleteRegistration(@ModelAttribute @Valid RegisterForm userDetails, BindingResult result) {
+	public ModelAndView CompleteRegistration(@ModelAttribute("userDetails") @Valid RegisterForm userDetails, BindingResult result) {
 		
 		ModelAndView mav = new ModelAndView();
 		Role role = new Role();
 		User user = new User();
 		
 		if(result.hasErrors()) {
-			mav.setViewName("register");
-			mav.addObject(result);
-			mav.addObject("userDetails", userDetails);
-			return mav;
+			return new ModelAndView("register");//,"userDetails", userDetails);
 		}			
 
 		// Now that the data is validated, register the user

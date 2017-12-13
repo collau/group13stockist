@@ -1,7 +1,6 @@
 package nus.iss.sa45.team13.stockist.model;
 
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 public class RegisterForm {
@@ -13,7 +12,7 @@ public class RegisterForm {
 	@Size(min=4, max=30)
 	private String userName;
 	
-	@Size(min=8, max=30)
+	@Size(min=4, max=30)
 	private String password;
 	
 	@NotNull
