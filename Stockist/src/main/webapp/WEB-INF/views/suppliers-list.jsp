@@ -24,15 +24,6 @@ tr {line-height:1.5;}
 			<a class="navbar-brand" href="#">Suppliers</a>
 		</div>
 
-<%-- 		<form:form method="POST" modelAttribute="suppliers"
-			action="${pageContext.request.contextPath}/suppliers"
-			class="navbar-form navbar-left">
-			<div class="form-group">
-				<form:input path="supplierid" class="form-control"/>
-			</div>
-			<input type="submit" value="Search" class="btn btn-default btn-lg" />
-		</form:form> --%>
-
 	</div>
 	</nav>
 	<p style="margin-left:10">
@@ -74,20 +65,7 @@ tr {line-height:1.5;}
 	</c:if>
 
 
-<!-- with list file -->
-<%-- 	<c:if test="${fn:length(supplierList) gt 0 }">
-		<c:forEach var="s" items="${supplierList}">
-			<div class="col-sm-12 col-md-4 col-lg-3">
-				<ul class="list-group">
-					<li class="list-group-item">Supplier ID : ${s.supplierid}</li>
-					<li class="list-group-item">Supplier Name : ${s.name}</li>
-					<li class="list-group-item">Supplier Address: ${s.address}</li>
-					<li class="list-group-item">Country: ${s.country }</li>
-					<li class="list-group-item"><button type="button" class="btn">Select</button></li>
-				</ul>
-			</div>
-		</c:forEach>
-	</c:if> --%>
+
 
 </body>
 </html>
